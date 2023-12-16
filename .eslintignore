@@ -7,3 +7,4 @@ public
 coverage
 # other
 .next
+yarn.lock
