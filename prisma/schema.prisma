@@ -15,6 +15,8 @@ model Profile {
   imageUrl String @db.Text
   email String @db.Text
   servers Server[]
+  members Member[]
+  channels Channel[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -24,12 +26,64 @@ model Server {
   name String
   imageUrl String @db.Text
   inviteCode String @db.Text
+
   profileId Int
   profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  channels Channel[]
+  members Member[]
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([profileId])
+}
+
+enum MemberRole {
+  ADMIN
+  MODERATOR
+  GUEST
+}
+
+model Member {
+  id Int @id @default(autoincrement())
+  role MemberRole @default(GUEST)
+
+  profileId Int
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  serverId Int
+  server Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+  @@index([serverId])
+}
+
+enum ChannelType {
+  TEXT
+  AUDIO
+  VIDEO
+}
+
+model Channel {
+  id Int @id @default(autoincrement())
+  name String
+  type ChannelType @default(TEXT)
+
+  serverId Int
+  server Server @relation(fields: [serverId], references: [id])
+
+  profileId Int
+  profile Profile @relation(fields: [profileId], references: [id])
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+  @@index([serverId])
 }
 
 
