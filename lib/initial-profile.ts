@@ -4,7 +4,6 @@ import { db } from './db'
 
 export const initialProfile = async () => {
   const user = await currentUser()
-  console.log(user?.emailAddresses[0].emailAddress)
 
   if (!user) return redirectToSignIn()
 
