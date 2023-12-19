@@ -9,7 +9,7 @@ generator client {
 }
 
 model Profile {
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   userId String @unique
   name String
   imageUrl String @db.Text
@@ -22,12 +22,12 @@ model Profile {
 }
 
 model Server {
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   name String
   imageUrl String @db.Text
   inviteCode String @db.Text
 
-  profileId Int
+  profileId String
   profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
 
   channels Channel[]
@@ -46,13 +46,13 @@ enum MemberRole {
 }
 
 model Member {
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   role MemberRole @default(GUEST)
 
-  profileId Int
+  profileId String
   profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
 
-  serverId Int
+  serverId String
   server Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
@@ -69,14 +69,14 @@ enum ChannelType {
 }
 
 model Channel {
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   name String
   type ChannelType @default(TEXT)
 
-  serverId Int
+  serverId String
   server Server @relation(fields: [serverId], references: [id])
 
-  profileId Int
+  profileId String
   profile Profile @relation(fields: [profileId], references: [id])
   
   createdAt DateTime @default(now())
