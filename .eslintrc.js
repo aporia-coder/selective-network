@@ -2,7 +2,12 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
-  extends: ['airbnb-typescript', 'next', 'plugin:prettier/recommended'],
+  extends: [
+    'airbnb-typescript',
+    'next',
+    'plugin:prettier/recommended',
+    'plugin:react/jsx-runtime',
+  ],
   ignorePatterns: ['.eslintrc.js'],
   env: {
     jest: true,
@@ -18,6 +23,8 @@ module.exports = {
     'react/jsx-filename-extension': [0],
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
   },
   overrides: [
     {
