@@ -30,7 +30,7 @@ const InitialModal = () => {
   const { isOpen, onClose, type } = useModal()
   const router = useRouter()
 
-  const isModalOpen = isOpen && type === Modals.createServer
+  const isModalOpen = isOpen && type === Modals.CREATE_SERVER
 
   const formSchema = z.object({
     name: z.string().min(1, {

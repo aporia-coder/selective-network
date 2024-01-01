@@ -11,7 +11,8 @@
     "write": "prettier . --write",
     "prepare": "husky install",
     "commit": "cz",
-    "prisma": "npx prisma studio"
+    "prisma": "npx prisma studio",
+    "resetdb": "npx prisma migrate reset"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.27.5",
