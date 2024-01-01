@@ -4,6 +4,7 @@ import { create } from 'zustand'
 export enum Modals {
   CREATE_SERVER = 'createServer',
   INVITE = 'invite',
+  EDIT_SERVER = 'editServer',
 }
 
 interface ModalData {
