@@ -10,7 +10,8 @@
     "lintfix": "next lint --fix",
     "write": "prettier . --write",
     "prepare": "husky install",
-    "commit": "cz"
+    "commit": "cz",
+    "prisma": "npx prisma studio"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.27.5",
@@ -37,7 +38,8 @@
     "tailwindcss-animate": "^1.0.7",
     "uploadthing": "^6.1.0",
     "uuid": "^9.0.1",
-    "zod": "^3.22.4"
+    "zod": "^3.22.4",
+    "zustand": "^4.4.7"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.0.4",
@@ -70,5 +72,6 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "packageManager": "yarn@4.0.2"
 }
