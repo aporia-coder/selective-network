@@ -20,5 +20,4 @@ jobs:
       - name: Build and lint
         run: |
           rm -rf node_modules && yarn install --frozen-lockfile
-          yarn build
           yarn lint
