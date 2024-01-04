@@ -5,6 +5,7 @@ export enum Modals {
   CREATE_SERVER = 'createServer',
   INVITE = 'invite',
   EDIT_SERVER = 'editServer',
+  MANAGE_MEMBERS = 'manageMembers',
 }
 
 interface ModalData {
@@ -15,7 +16,7 @@ interface ModalStore {
   type: Modals | null
   data: ModalData
   isOpen: boolean
-  onOpen: (type: Modals, data: ModalData) => void
+  onOpen: (type: Modals, data?: ModalData) => void
   onClose: () => void
 }
 
