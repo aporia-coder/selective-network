@@ -3,6 +3,7 @@ import { db } from '@/lib/db'
 import { NextResponse } from 'next/server'
 
 // make an error handler
+
 export async function DELETE(
   req: Request,
   { params: { memberId } }: { params: { memberId: string } }
