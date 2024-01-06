@@ -6,6 +6,7 @@ export enum Modals {
   INVITE = 'invite',
   EDIT_SERVER = 'editServer',
   MANAGE_MEMBERS = 'manageMembers',
+  CREATE_CHANNEL = 'createChannel',
 }
 
 interface ModalData {
