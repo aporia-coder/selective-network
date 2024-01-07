@@ -34,7 +34,6 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu'
-import { MemberRoles } from '@/app/globalTypes'
 import { MemberRole } from '@prisma/client'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
@@ -51,9 +50,11 @@ const ManageMembersModal = () => {
   // can potentially map over object.values(enum) instead of this
   const memberRoleIconList = useMemo(() => {
     return {
-      GUEST: null,
-      MODERATOR: <ShieldCheck className="h-4 w-4 ml-2 text-indigo-500" />,
-      ADMIN: <ShieldAlert className="h-4 w-4 text-rose-500" />,
+      [MemberRole.GUEST]: null,
+      [MemberRole.MODERATOR]: (
+        <ShieldCheck className="h-4 w-4 ml-2 text-indigo-500" />
+      ),
+      [MemberRole.ADMIN]: <ShieldAlert className="h-4 w-4 text-rose-500" />,
     }
   }, [])
 
@@ -147,12 +148,12 @@ const ManageMembersModal = () => {
                               {/* Could iterate here instead of copy paste */}
                               <DropdownMenuItem
                                 onClick={() =>
-                                  handleRoleChange(member.id, MemberRoles.GUEST)
+                                  handleRoleChange(member.id, MemberRole.GUEST)
                                 }
                               >
                                 <Shield className="h-4 w-4 mr-2" />
                                 Guest
-                                {member.role === MemberRoles.GUEST && (
+                                {member.role === MemberRole.GUEST && (
                                   <Check className="w-4 h-4 ml-auto" />
                                 )}
                               </DropdownMenuItem>
@@ -161,13 +162,13 @@ const ManageMembersModal = () => {
                                 onClick={() =>
                                   handleRoleChange(
                                     member.id,
-                                    MemberRoles.MODERATOR
+                                    MemberRole.MODERATOR
                                   )
                                 }
                               >
                                 <ShieldCheck className="h-4 w-4 mr-2" />
                                 Moderator
-                                {member.role === MemberRoles.MODERATOR && (
+                                {member.role === MemberRole.MODERATOR && (
                                   <Check className="w-4 h-4 ml-auto" />
                                 )}
                               </DropdownMenuItem>
