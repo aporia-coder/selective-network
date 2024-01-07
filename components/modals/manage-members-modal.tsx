@@ -48,6 +48,7 @@ const ManageMembersModal = () => {
 
   const isModalOpen = isOpen && type === Modals.MANAGE_MEMBERS
 
+  // can potentially map over object.values(enum) instead of this
   const memberRoleIconList = useMemo(() => {
     return {
       GUEST: null,
