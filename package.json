@@ -12,7 +12,9 @@
     "prepare": "husky install",
     "commit": "cz",
     "prisma": "npx prisma studio",
-    "resetdb": "npx prisma migrate reset"
+    "resetdb": "prisma migrate reset",
+    "pushdb": "prisma db push",
+    "generate": "prisma generate"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.27.5",
