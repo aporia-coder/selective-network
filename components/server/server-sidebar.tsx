@@ -4,39 +4,21 @@ import { redirect } from 'next/navigation'
 import ServerHeader from './server-header'
 import { ScrollArea } from '../ui/scroll-area'
 import ServerSearch from './ServerSearch'
-import { useMemo } from 'react'
-import { ChannelType, MemberRole } from '@prisma/client'
-import { Hash, Mic, ShieldAlert, ShieldCheck, Video } from 'lucide-react'
+import { ChannelType } from '@prisma/client'
 import { Separator } from '../ui/separator'
 import ServerSection from './ServerSection'
-import { ServerSearchTypes } from '@/app/globalTypes'
+import { SidebarSectionTypes } from '@/app/globalTypes'
 import ServerChannel from './ServerChannel'
+import { useGetChannelTypeIcons } from '@/app/hooks/useGetChannelTypeIcons'
+import { useGetMemberRoleIcons } from '@/app/hooks/useGetMemberRoleIcons'
 
 interface ServerSidebarProps {
   serverId: string
 }
 
 const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
-  const channelTypeIconList = useMemo(() => {
-    return {
-      [ChannelType.TEXT]: <Hash className="mr-2 h-4 w-4" />,
-      [ChannelType.AUDIO]: <Mic className="mr-2 h-4 w-4" />,
-      [ChannelType.VIDEO]: <Video className="mr-2 h-4 w-4" />,
-    }
-  }, [])
-
-  const roleIconList = useMemo(() => {
-    return {
-      [MemberRole.GUEST]: null,
-      // make this into icon component as it is repeated
-      [MemberRole.MODERATOR]: (
-        <ShieldCheck className="mr-2 h-4 w-4 text-indigo-500" />
-      ),
-      [MemberRole.ADMIN]: (
-        <ShieldAlert className="mr-2 h-4 w-4 text-rose-500" />
-      ),
-    }
-  }, [])
+  const channelTypeIcons = useGetChannelTypeIcons()
+  const memberRoleIcons = useGetMemberRoleIcons()
 
   const profile = await currentProfile()
   if (!profile) redirect('/')
@@ -79,41 +61,41 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
 
   const textChannelSearchData = {
     label: 'Text Channels',
-    type: ServerSearchTypes.CHANNEL,
+    type: SidebarSectionTypes.CHANNEL,
     data: textChannels?.map(({ id, name, type }) => ({
       id,
       name,
-      icon: channelTypeIconList[type],
+      icon: channelTypeIcons[type],
     })),
   }
 
   const audioChannelSearchData = {
     label: 'Voice Channels',
-    type: ServerSearchTypes.CHANNEL,
+    type: SidebarSectionTypes.CHANNEL,
     data: audioChannels?.map(({ id, name, type }) => ({
       id,
       name,
-      icon: channelTypeIconList[type],
+      icon: channelTypeIcons[type],
     })),
   }
 
   const videoChannelSearchData = {
     label: 'Video Channels',
-    type: ServerSearchTypes.CHANNEL,
+    type: SidebarSectionTypes.CHANNEL,
     data: videoChannels?.map(({ id, name, type }) => ({
       id,
       name,
-      icon: channelTypeIconList[type],
+      icon: channelTypeIcons[type],
     })),
   }
 
   const membersSearchData = {
     label: 'Members',
-    type: ServerSearchTypes.MEMBER,
+    type: SidebarSectionTypes.MEMBER,
     data: members?.map(({ profile: { id, name }, role }) => ({
       id,
       name,
-      icon: roleIconList[role],
+      icon: memberRoleIcons[role],
     })),
   }
 
@@ -143,7 +125,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
             <ServerSection
               label="text channels"
               channelType={ChannelType.TEXT}
-              sectionType={ServerSearchTypes.CHANNEL}
+              sectionType={SidebarSectionTypes.CHANNEL}
               role={role}
             />
             {textChannels.map((channel) => (
@@ -161,7 +143,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
             <ServerSection
               label="audio channels"
               channelType={ChannelType.AUDIO}
-              sectionType={ServerSearchTypes.CHANNEL}
+              sectionType={SidebarSectionTypes.CHANNEL}
               role={role}
             />
             {audioChannels.map((channel) => (
@@ -179,7 +161,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
             <ServerSection
               label="video channels"
               channelType={ChannelType.VIDEO}
-              sectionType={ServerSearchTypes.CHANNEL}
+              sectionType={SidebarSectionTypes.CHANNEL}
               role={role}
             />
             {videoChannels.map((channel) => (
@@ -196,7 +178,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
           <div className="mb-2">
             <ServerSection
               label="members"
-              sectionType={ServerSearchTypes.MEMBER}
+              sectionType={SidebarSectionTypes.MEMBER}
               role={role}
             />
             {members.map((member) => (

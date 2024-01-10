@@ -1,9 +1,9 @@
-import { ServerSearchTypes } from '@/app/globalTypes'
+import { SidebarSectionTypes } from '@/app/globalTypes'
 
 export interface ServerSearchProps {
   data: {
     label: string
-    type: ServerSearchTypes
+    type: SidebarSectionTypes
     data:
       | {
           icon: React.ReactNode

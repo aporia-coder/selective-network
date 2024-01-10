@@ -23,10 +23,8 @@ const BaseModal = ({
             {headerTitle}
           </DialogTitle>
           <DialogDescription>{description}</DialogDescription>
-          <DialogFooter className="bg-gray-100 px-6 py-4">
-            {button}
-          </DialogFooter>
         </DialogHeader>
+        <DialogFooter className="bg-gray-100 px-6 py-4">{button}</DialogFooter>
       </DialogContent>
     </Dialog>
   )

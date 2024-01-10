@@ -1,5 +1,5 @@
 import {
-  ServerSearchTypes,
+  SidebarSectionTypes,
   ServerWithMembersAndProfiles,
 } from '@/app/globalTypes'
 import { ChannelType, MemberRole } from '@prisma/client'
@@ -7,7 +7,7 @@ import { ChannelType, MemberRole } from '@prisma/client'
 export interface ServerSectionProps {
   label: string
   role: MemberRole | undefined
-  sectionType: ServerSearchTypes
+  sectionType: SidebarSectionTypes
   channelType?: ChannelType
   server?: ServerWithMembersAndProfiles
 }

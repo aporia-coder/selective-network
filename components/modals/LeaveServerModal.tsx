@@ -1,6 +1,6 @@
 'use client'
 
-import { Modals, useModal } from '@/app/hooks/use-modal-store'
+import { Modals, useModal } from '@/app/hooks/useModalStore'
 import { Button } from '../ui/button'
 import { useState } from 'react'
 import axios from 'axios'

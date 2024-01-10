@@ -1,7 +1,7 @@
 'use client'
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../ui/dialog'
-import { Modals, useModal } from '@/app/hooks/use-modal-store'
+import { Modals, useModal } from '@/app/hooks/useModalStore'
 import { Label } from '../ui/label'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
