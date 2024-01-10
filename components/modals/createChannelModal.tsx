@@ -32,11 +32,13 @@ import {
 } from '../ui/select'
 import { ChannelType } from '@prisma/client'
 import qs from 'query-string'
+import { useEffect } from 'react'
 
 const CreateChannelModal = () => {
-  const { isOpen, onClose, type } = useModal()
+  const { isOpen, onClose, type, data } = useModal()
   const router = useRouter()
   const { serverId } = useParams()
+  const { channelType } = data
 
   const isModalOpen = isOpen && type === Modals.CREATE_CHANNEL
 
@@ -57,9 +59,17 @@ const CreateChannelModal = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
-      type: ChannelType.TEXT,
+      type: channelType ?? ChannelType.TEXT,
     },
   })
+
+  useEffect(() => {
+    if (channelType) {
+      form.setValue('type', channelType)
+    } else {
+      form.setValue('type', ChannelType.TEXT)
+    }
+  }, [channelType, form])
 
   const handleModalClose = () => {
     form.reset()

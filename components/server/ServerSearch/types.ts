@@ -1,7 +1,4 @@
-export enum ServerSearchTypes {
-  CHANNEL = 'channel',
-  MEMBER = 'member',
-}
+import { ServerSearchTypes } from '@/app/globalTypes'
 
 export interface ServerSearchProps {
   data: {

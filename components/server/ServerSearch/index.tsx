@@ -1,7 +1,7 @@
 'use client'
 
 import { Search } from 'lucide-react'
-import { ServerSearchProps, ServerSearchTypes } from './types'
+import { ServerSearchProps } from './types'
 import {
   CommandDialog,
   CommandEmpty,
@@ -12,6 +12,8 @@ import {
 } from '@/components/ui/command'
 import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
+import { ServerSearchTypes } from '@/app/globalTypes'
+import { featureToggle } from '@/app/settings'
 
 const ServerSearch = ({ data }: ServerSearchProps) => {
   const [open, setOpen] = useState(false)
@@ -54,9 +56,12 @@ const ServerSearch = ({ data }: ServerSearchProps) => {
         <p className="font-semibold text-sm text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-400 dark:group-hover:text-zinc-300 transition">
           Search
         </p>
-        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground ml-auto">
-          <span>SHIFT</span>K
-        </kbd>
+        {featureToggle.keyboardShortcutSearch && (
+          <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground ml-auto">
+            {/* GET SOMETHING TO CHECK FOR WINDOWS/APPLE HERE */}
+            <span>CTRL</span>K
+          </kbd>
+        )}
       </button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Search for channels and members" />
@@ -69,7 +74,7 @@ const ServerSearch = ({ data }: ServerSearchProps) => {
               <CommandGroup key={label}>
                 {innerData?.map(({ icon, name, id }) => (
                   <>
-                    <CommandItem onSelect={() => onClick(id, type)}>
+                    <CommandItem onSelect={() => onClick(id, type)} key={id}>
                       {icon}
                       <span>{name}</span>
                     </CommandItem>
