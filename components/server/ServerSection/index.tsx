@@ -2,10 +2,10 @@
 
 import { MemberRole } from '@prisma/client'
 import { ServerSectionProps } from './types'
-import { ServerSearchTypes } from '@/app/globalTypes'
+import { SidebarSectionTypes } from '@/app/globalTypes'
 import ActionTooltip from '@/components/action-tooltip'
 import { Plus, Settings } from 'lucide-react'
-import { Modals, useModal } from '@/app/hooks/use-modal-store'
+import { Modals, useModal } from '@/app/hooks/useModalStore'
 
 const ServerSection = ({
   label,
@@ -21,7 +21,7 @@ const ServerSection = ({
         {label}
       </p>
       {role !== MemberRole.GUEST &&
-        sectionType === ServerSearchTypes.CHANNEL && (
+        sectionType === SidebarSectionTypes.CHANNEL && (
           <ActionTooltip label={label}>
             <button
               className="text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300 transition"
@@ -32,7 +32,7 @@ const ServerSection = ({
           </ActionTooltip>
         )}
       {role === MemberRole.ADMIN &&
-        sectionType === ServerSearchTypes.MEMBER && (
+        sectionType === SidebarSectionTypes.MEMBER && (
           <ActionTooltip label={label}>
             <button
               className="text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300 transition"

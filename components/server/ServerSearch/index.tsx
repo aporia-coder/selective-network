@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/command'
 import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
-import { ServerSearchTypes } from '@/app/globalTypes'
+import { SidebarSectionTypes } from '@/app/globalTypes'
 import { featureToggle } from '@/app/settings'
 
 const ServerSearch = ({ data }: ServerSearchProps) => {
@@ -20,7 +20,6 @@ const ServerSearch = ({ data }: ServerSearchProps) => {
   const { serverId } = useParams()
   const router = useRouter()
 
-  // needs fixing
   useEffect(() => {
     const keyDown = (e: KeyboardEvent) => {
       if (e.key === 'k' && e.ctrlKey) {
@@ -36,10 +35,10 @@ const ServerSearch = ({ data }: ServerSearchProps) => {
     }
   }, [])
 
-  const onClick = (id: string, type: ServerSearchTypes) => {
+  const onClick = (id: string, type: SidebarSectionTypes) => {
     setOpen(false)
 
-    if (type === ServerSearchTypes.MEMBER) {
+    if (type === SidebarSectionTypes.MEMBER) {
       router.push(`/servers/${serverId}/conversations/${id}`)
     } else {
       router.push(`/servers/${serverId}/channels/${id}`)

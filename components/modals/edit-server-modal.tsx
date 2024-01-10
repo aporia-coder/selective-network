@@ -24,7 +24,7 @@ import { Button } from '../ui/button'
 import FileUpload from '../file-upload'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
-import { Modals, useModal } from '@/app/hooks/use-modal-store'
+import { Modals, useModal } from '@/app/hooks/useModalStore'
 import { useEffect } from 'react'
 
 const EditServerModal = () => {

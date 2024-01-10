@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '../ui/dialog'
-import { Modals, useModal } from '@/app/hooks/use-modal-store'
+import { Modals, useModal } from '@/app/hooks/useModalStore'
 import { ScrollArea } from '../ui/scroll-area'
 import UserAvatar from '../user-avatar'
 import {
@@ -18,11 +18,10 @@ import {
   Loader2,
   MoreVertical,
   Shield,
-  ShieldAlert,
   ShieldCheck,
   ShieldQuestion,
 } from 'lucide-react'
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -37,26 +36,17 @@ import {
 import { MemberRole } from '@prisma/client'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
+import { useGetMemberRoleIcons } from '@/app/hooks/useGetMemberRoleIcons'
 
 const ManageMembersModal = () => {
   // this also could be conditional from invite modal
+  const memberRoleIcons = useGetMemberRoleIcons()
   const router = useRouter()
   const [loadingId, setLoadingId] = useState('')
   const { isOpen, onClose, type, data, onOpen } = useModal()
   const { server } = data as { server: ServerWithMembersAndProfiles }
 
   const isModalOpen = isOpen && type === Modals.MANAGE_MEMBERS
-
-  // can potentially map over object.values(enum) instead of this
-  const memberRoleIconList = useMemo(() => {
-    return {
-      [MemberRole.GUEST]: null,
-      [MemberRole.MODERATOR]: (
-        <ShieldCheck className="h-4 w-4 ml-2 text-indigo-500" />
-      ),
-      [MemberRole.ADMIN]: <ShieldAlert className="h-4 w-4 text-rose-500" />,
-    }
-  }, [])
 
   const handleKickMember = async (memberId: string) => {
     try {
@@ -124,7 +114,7 @@ const ManageMembersModal = () => {
               <div className="flex flex-col gap-y-1">
                 <div className="text-xs font-semibold flex items-center gap-x-1">
                   {member.profile.name}
-                  {memberRoleIconList[member.role]}
+                  {memberRoleIcons[member.role]}
                 </div>
                 <p className="text-xs text-zinc-500">{member.profile.email}</p>
               </div>
