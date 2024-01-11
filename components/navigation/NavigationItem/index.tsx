@@ -1,7 +1,7 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import ActionTooltip, { TooltipAlign, TooltipSide } from '../action-tooltip'
+import ActionTooltip, { TooltipAlign, TooltipSide } from '../../ActionTooltip'
 import { useParams, useRouter } from 'next/navigation'
 import Image from 'next/image'
 

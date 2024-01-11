@@ -5,13 +5,15 @@ import { ServerChannelProps } from './types'
 import { ChannelType, MemberRole } from '@prisma/client'
 import { Edit, Hash, Lock, Mic, Trash, Video } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { useParams, useRouter } from 'next/navigation'
-import ActionTooltip from '@/components/action-tooltip'
-// import { Modals, useModal } from '@/app/hooks/use-modal-store'
+import { useParams } from 'next/navigation'
+import ActionTooltip from '@/components/ActionTooltip'
+import { Modals, useModal } from '@/app/hooks/useModalStore'
 
-const ServerChannel = ({ channel, role }: ServerChannelProps) => {
-  const { channelId, serverId } = useParams()
-  const router = useRouter()
+const ServerChannel = ({ channel, server, role }: ServerChannelProps) => {
+  const { onOpen } = useModal()
+  const { channelId } = useParams()
+  // const { channelId, serverId } = useParams()
+  // const router = useRouter()
 
   const channelIconList = useMemo(() => {
     return {
@@ -27,16 +29,12 @@ const ServerChannel = ({ channel, role }: ServerChannelProps) => {
 
   const Icon = channelIconList[channel.type]
 
-  const handleChannelChange = () =>
-    router.push(`/servers/${serverId}/channels/${channelId}`)
-
   return (
     <button
       className={cn(
         'group px-2 py-2 rounded-md flex items-center gap-x-2 w-full hover:bg-zinc-700/10 dark:hover:bg-zinc-700/50 transition mb-1',
         isChannelActive && 'bg-zinc-700/20 dark:bg-zinc-700'
       )}
-      onClick={handleChannelChange}
     >
       <Icon className="flex-shrink-0 w-5 h-5 text-zinc-500 dark:text-zinc-400" />
       <p
@@ -51,12 +49,20 @@ const ServerChannel = ({ channel, role }: ServerChannelProps) => {
       <div className="flex items-center ml-auto gap-x-2">
         {channel.name !== 'general' && role !== MemberRole.GUEST && (
           <ActionTooltip label="Edit">
-            <Edit className="hidden group-hover:block w-4 h-4 text-zinc-500 hover:text-zinc-600" />
+            <Edit
+              className="hidden group-hover:block w-4 h-4 text-zinc-500 hover:text-zinc-600"
+              onClick={() =>
+                onOpen(Modals.CREATE_EDIT_CHANNEL, { channel, isEdit: true })
+              }
+            />
           </ActionTooltip>
         )}
         {channel.name !== 'general' && role === MemberRole.ADMIN && (
           <ActionTooltip label="Delete">
-            <Trash className="hidden group-hover:block w-4 h-4 text-zinc-500 hover:text-zinc-600" />
+            <Trash
+              className="hidden group-hover:block w-4 h-4 text-zinc-500 hover:text-zinc-600"
+              onClick={() => onOpen(Modals.DELETE_CHANNEL, { server, channel })}
+            />
           </ActionTooltip>
         )}
         {channel.name === 'general' && (

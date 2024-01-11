@@ -19,8 +19,8 @@ const LeaveServerModal = () => {
     try {
       setIsLoading(true)
       await axios.patch(`/api/servers/${server?.id}/leave`)
-      onClose()
       router.refresh()
+      onClose()
       router.push('/')
     } catch (error) {
       console.log(error)
@@ -38,7 +38,7 @@ const LeaveServerModal = () => {
 
   const button = (
     <div className="flex items-center justify-between w-full">
-      <Button variant="secondary" disabled={isLoading} onClick={onClose}>
+      <Button disabled={isLoading} onClick={onClose}>
         Cancel
       </Button>
       <Button variant="primary" onClick={handleLeaveServer}>

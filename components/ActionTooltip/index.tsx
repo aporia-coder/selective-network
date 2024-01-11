@@ -5,7 +5,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from './ui/tooltip'
+} from '../ui/tooltip'
 
 export enum TooltipSide {
   top = 'top',

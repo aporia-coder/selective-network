@@ -11,7 +11,7 @@ import {
 } from '../ui/dialog'
 import { Modals, useModal } from '@/app/hooks/useModalStore'
 import { ScrollArea } from '../ui/scroll-area'
-import UserAvatar from '../user-avatar'
+import UserAvatar from '../UserAvatar'
 import {
   Check,
   Gavel,
@@ -39,7 +39,6 @@ import { useRouter } from 'next/navigation'
 import { useGetMemberRoleIcons } from '@/app/hooks/useGetMemberRoleIcons'
 
 const ManageMembersModal = () => {
-  // this also could be conditional from invite modal
   const memberRoleIcons = useGetMemberRoleIcons()
   const router = useRouter()
   const [loadingId, setLoadingId] = useState('')
