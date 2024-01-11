@@ -33,14 +33,14 @@ import {
 import { ChannelType } from '@prisma/client'
 import qs from 'query-string'
 import { useEffect } from 'react'
+import { useIsModalOpen } from '@/app/hooks/useIsModalOpen'
 
 const CreateEditChannelModal = () => {
   const { isOpen, onClose, type, data } = useModal()
+  const isModalOpen = useIsModalOpen(isOpen, type, Modals.CREATE_EDIT_CHANNEL)
   const router = useRouter()
   const { serverId } = useParams()
   const { channelType, isEdit, channel } = data
-
-  const isModalOpen = isOpen && type === Modals.CREATE_EDIT_CHANNEL
 
   const formSchema = z.object({
     name: z

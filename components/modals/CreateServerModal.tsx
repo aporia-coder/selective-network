@@ -25,12 +25,13 @@ import FileUpload from '../FileUpload'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { Modals, useModal } from '@/app/hooks/useModalStore'
+import { useIsModalOpen } from '@/app/hooks/useIsModalOpen'
 
 const CreateServerModal = () => {
   const { isOpen, onClose, type } = useModal()
-  const router = useRouter()
+  const isModalOpen = useIsModalOpen(isOpen, type, Modals.CREATE_SERVER)
 
-  const isModalOpen = isOpen && type === Modals.CREATE_SERVER
+  const router = useRouter()
 
   const formSchema = z.object({
     name: z.string().min(1, {

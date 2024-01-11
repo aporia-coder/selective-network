@@ -9,18 +9,19 @@ import { Check, Copy, RefreshCw } from 'lucide-react'
 import { useOrigin } from '@/app/hooks/useOrigin'
 import axios from 'axios'
 import { useState } from 'react'
+import { useIsModalOpen } from '@/app/hooks/useIsModalOpen'
 
 const InviteServerModal = () => {
   const [copied, setIsCopied] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const { isOpen, onClose, type, data, onOpen } = useModal()
+  const isModalOpen = useIsModalOpen(isOpen, type, Modals.INVITE)
+
   const { server } = data
 
   const origin = useOrigin()
 
   const inviteLink = `${origin}/invite/${server?.inviteCode}`
-
-  const isModalOpen = isOpen && type === Modals.INVITE
 
   const onCopy = () => {
     navigator.clipboard.writeText(inviteLink)

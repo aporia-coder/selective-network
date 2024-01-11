@@ -37,15 +37,16 @@ import { MemberRole } from '@prisma/client'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { useGetMemberRoleIcons } from '@/app/hooks/useGetMemberRoleIcons'
+import { useIsModalOpen } from '@/app/hooks/useIsModalOpen'
 
 const ManageMembersModal = () => {
   const memberRoleIcons = useGetMemberRoleIcons()
   const router = useRouter()
   const [loadingId, setLoadingId] = useState('')
   const { isOpen, onClose, type, data, onOpen } = useModal()
-  const { server } = data as { server: ServerWithMembersAndProfiles }
+  const isModalOpen = useIsModalOpen(isOpen, type, Modals.MANAGE_MEMBERS)
 
-  const isModalOpen = isOpen && type === Modals.MANAGE_MEMBERS
+  const { server } = data as { server: ServerWithMembersAndProfiles }
 
   const handleKickMember = async (memberId: string) => {
     try {
