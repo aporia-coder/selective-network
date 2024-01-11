@@ -6,14 +6,15 @@ import { useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import BaseModal from './BaseModal'
+import { useIsModalOpen } from '@/app/hooks/useIsModalOpen'
 
 const LeaveServerModal = () => {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
   const { isOpen, onClose, type, data } = useModal()
-  const { server } = data
+  const isModalOpen = useIsModalOpen(isOpen, type, Modals.LEAVE_SERVER)
 
-  const isModalOpen = isOpen && type === Modals.LEAVE_SERVER
+  const { server } = data
 
   const handleLeaveServer = async () => {
     try {

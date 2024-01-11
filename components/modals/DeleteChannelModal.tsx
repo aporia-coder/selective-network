@@ -7,14 +7,15 @@ import { Button } from '../ui/button'
 import qs from 'query-string'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
+import { useIsModalOpen } from '@/app/hooks/useIsModalOpen'
 
 const DeleteChanelModal = () => {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
   const { isOpen, onClose, type, data } = useModal()
-  const { server, channel } = data
+  const isModalOpen = useIsModalOpen(isOpen, type, Modals.DELETE_CHANNEL)
 
-  const isModalOpen = isOpen && type === Modals.DELETE_CHANNEL
+  const { server, channel } = data
 
   const handleDeleteChannel = async () => {
     try {
