@@ -34,13 +34,13 @@ import { ChannelType } from '@prisma/client'
 import qs from 'query-string'
 import { useEffect } from 'react'
 
-const CreateChannelModal = () => {
+const CreateEditChannelModal = () => {
   const { isOpen, onClose, type, data } = useModal()
   const router = useRouter()
   const { serverId } = useParams()
-  const { channelType } = data
+  const { channelType, isEdit, channel } = data
 
-  const isModalOpen = isOpen && type === Modals.CREATE_CHANNEL
+  const isModalOpen = isOpen && type === Modals.CREATE_EDIT_CHANNEL
 
   const formSchema = z.object({
     name: z
@@ -59,17 +59,18 @@ const CreateChannelModal = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
-      type: channelType ?? ChannelType.TEXT,
+      type: (isEdit && channel && channel.type) || ChannelType.TEXT,
     },
   })
 
   useEffect(() => {
-    if (channelType) {
+    if (channelType && !isEdit) {
       form.setValue('type', channelType)
-    } else {
-      form.setValue('type', ChannelType.TEXT)
+    } else if (channel && isEdit) {
+      form.setValue('name', channel?.name)
+      form.setValue('type', channel?.type)
     }
-  }, [channelType, form])
+  }, [channelType, form, isEdit, channel])
 
   const handleModalClose = () => {
     form.reset()
@@ -78,7 +79,7 @@ const CreateChannelModal = () => {
 
   const isLoading = form.formState.isSubmitting
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+  const handleCreateChannel = async (values: z.infer<typeof formSchema>) => {
     try {
       const url = qs.stringifyUrl({
         url: `/api/channels`,
@@ -96,12 +97,32 @@ const CreateChannelModal = () => {
     }
   }
 
+  const handleEditChannel = async (values: z.infer<typeof formSchema>) => {
+    try {
+      const url = qs.stringifyUrl({
+        url: `/api/channels/${channel?.id}`,
+        query: {
+          serverId,
+        },
+      })
+
+      await axios.patch(url, values)
+      form.reset()
+      router.refresh()
+      onClose()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const onSubmit = isEdit ? handleEditChannel : handleCreateChannel
+
   return (
     <Dialog open={isModalOpen} onOpenChange={handleModalClose}>
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold">
-            Create a channel
+            {isEdit ? 'Edit channel' : 'Create a channel'}
           </DialogTitle>
         </DialogHeader>
         <Form {...form}>
@@ -142,13 +163,13 @@ const CreateChannelModal = () => {
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        {Object.values(ChannelType).map((channel) => (
+                        {Object.values(ChannelType).map((channelData) => (
                           <SelectItem
-                            key={channel}
-                            value={channel}
+                            key={channelData}
+                            value={channelData}
                             className="capitalize"
                           >
-                            {channel.toLowerCase()}
+                            {channelData.toLowerCase()}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -160,7 +181,7 @@ const CreateChannelModal = () => {
             </div>
             <DialogFooter className="bg-gray-100 px-6 py-4">
               <Button variant="primary" disabled={isLoading}>
-                Create
+                {isEdit ? 'Save' : 'Create'}
               </Button>
             </DialogFooter>
           </form>
@@ -170,4 +191,4 @@ const CreateChannelModal = () => {
   )
 }
 
-export default CreateChannelModal
+export default CreateEditChannelModal

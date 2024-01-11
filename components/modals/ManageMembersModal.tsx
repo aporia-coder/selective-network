@@ -39,7 +39,6 @@ import { useRouter } from 'next/navigation'
 import { useGetMemberRoleIcons } from '@/app/hooks/useGetMemberRoleIcons'
 
 const ManageMembersModal = () => {
-  // this also could be conditional from invite modal
   const memberRoleIcons = useGetMemberRoleIcons()
   const router = useRouter()
   const [loadingId, setLoadingId] = useState('')

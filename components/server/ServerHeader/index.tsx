@@ -69,7 +69,7 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
         )}
         {isModerator && (
           <DropdownMenuItem
-            onClick={() => onOpen(Modals.CREATE_CHANNEL, { server })}
+            onClick={() => onOpen(Modals.CREATE_EDIT_CHANNEL, { server })}
             className="px-3 py-2 text-sm cursor-pointer"
           >
             Create Channel

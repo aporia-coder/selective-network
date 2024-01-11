@@ -6,7 +6,7 @@ export enum Modals {
   INVITE = 'invite',
   EDIT_SERVER = 'editServer',
   MANAGE_MEMBERS = 'manageMembers',
-  CREATE_CHANNEL = 'createChannel',
+  CREATE_EDIT_CHANNEL = 'createEditChannel',
   LEAVE_SERVER = 'leaveServer',
   DELETE_CHANNEL = 'deleteChannel',
 }
@@ -15,6 +15,7 @@ interface ModalData {
   server?: Server
   channelType?: ChannelType
   channel?: Channel
+  isEdit?: boolean
 }
 
 interface ModalStore {
