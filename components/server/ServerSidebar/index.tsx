@@ -11,10 +11,8 @@ import { SidebarSectionTypes } from '@/app/globalTypes'
 import ServerChannel from '../ServerChannel'
 import { useGetChannelTypeIcons } from '@/app/hooks/useGetChannelTypeIcons'
 import { useGetMemberRoleIcons } from '@/app/hooks/useGetMemberRoleIcons'
-
-interface ServerSidebarProps {
-  serverId: string
-}
+import { ServerSidebarProps } from './types'
+import ServerMember from '../ServerMember'
 
 const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
   const channelTypeIcons = useGetChannelTypeIcons()
@@ -182,9 +180,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
               role={role}
             />
             {members.map((member) => (
-              <div key={member.id}>
-                <p>{member.profile.name}</p>
-              </div>
+              <ServerMember member={member} server={server} key={member.id} />
             ))}
           </div>
         )}
