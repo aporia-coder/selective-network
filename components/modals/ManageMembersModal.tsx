@@ -11,7 +11,7 @@ import {
 } from '../ui/dialog'
 import { Modals, useModal } from '@/app/hooks/useModalStore'
 import { ScrollArea } from '../ui/scroll-area'
-import UserAvatar from '../user-avatar'
+import UserAvatar from '../UserAvatar'
 import {
   Check,
   Gavel,

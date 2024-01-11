@@ -3,7 +3,7 @@
 import { MemberRole } from '@prisma/client'
 import { ServerSectionProps } from './types'
 import { SidebarSectionTypes } from '@/app/globalTypes'
-import ActionTooltip from '@/components/action-tooltip'
+import ActionTooltip from '@/components/ActionTooltip'
 import { Plus, Settings } from 'lucide-react'
 import { Modals, useModal } from '@/app/hooks/useModalStore'
 

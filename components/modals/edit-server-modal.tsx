@@ -21,7 +21,7 @@ import {
 } from '../ui/form'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
-import FileUpload from '../file-upload'
+import FileUpload from '../FileUpload'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { Modals, useModal } from '@/app/hooks/useModalStore'
