@@ -24,8 +24,8 @@ import { Button } from '../ui/button'
 import FileUpload from '../FileUpload'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
-import { Modals, useModal } from '@/app/hooks/useModalStore'
-import { useIsModalOpen } from '@/app/hooks/useIsModalOpen'
+import { Modals, useModal } from '@/app/hooks/Modals/useModalStore'
+import { useIsModalOpen } from '@/app/hooks/Modals/useIsModalOpen'
 
 const CreateServerModal = () => {
   const { isOpen, onClose, type } = useModal()

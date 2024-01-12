@@ -1,13 +1,13 @@
 'use client'
 
-import { Modals, useModal } from '@/app/hooks/useModalStore'
+import { Modals, useModal } from '@/app/hooks/Modals/useModalStore'
 import BaseModal from './BaseModal'
 import { useState } from 'react'
 import { Button } from '../ui/button'
 import qs from 'query-string'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
-import { useIsModalOpen } from '@/app/hooks/useIsModalOpen'
+import { useIsModalOpen } from '@/app/hooks/Modals/useIsModalOpen'
 
 const DeleteChanelModal = () => {
   const [isLoading, setIsLoading] = useState(false)

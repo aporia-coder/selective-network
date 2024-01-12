@@ -1,7 +1,7 @@
 'use client'
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../ui/dialog'
-import { Modals, useModal } from '@/app/hooks/useModalStore'
+import { Modals, useModal } from '@/app/hooks/Modals/useModalStore'
 import { Label } from '../ui/label'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
@@ -9,7 +9,7 @@ import { Check, Copy, RefreshCw } from 'lucide-react'
 import { useOrigin } from '@/app/hooks/useOrigin'
 import axios from 'axios'
 import { useState } from 'react'
-import { useIsModalOpen } from '@/app/hooks/useIsModalOpen'
+import { useIsModalOpen } from '@/app/hooks/Modals/useIsModalOpen'
 
 const InviteServerModal = () => {
   const [copied, setIsCopied] = useState(false)

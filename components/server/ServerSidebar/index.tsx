@@ -9,8 +9,8 @@ import { Separator } from '../../ui/separator'
 import ServerSection from '../ServerSection'
 import { SidebarSectionTypes } from '@/app/globalTypes'
 import ServerChannel from '../ServerChannel'
-import { useGetChannelTypeIcons } from '@/app/hooks/useGetChannelTypeIcons'
-import { useGetMemberRoleIcons } from '@/app/hooks/useGetMemberRoleIcons'
+import { useGetChannelTypeIcons } from '@/app/hooks/Icons/useGetChannelTypeIcons'
+import { useGetMemberRoleIcons } from '@/app/hooks/Icons/useGetMemberRoleIcons'
 import { ServerSidebarProps } from './types'
 import ServerMember from '../ServerMember'
 
@@ -178,6 +178,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
               label="members"
               sectionType={SidebarSectionTypes.MEMBER}
               role={role}
+              server={server}
             />
             {members.map((member) => (
               <ServerMember member={member} server={server} key={member.id} />

@@ -1,6 +1,6 @@
 'use client'
 
-import { useGetMemberRoleIcons } from '@/app/hooks/useGetMemberRoleIcons'
+import { useGetMemberRoleIcons } from '@/app/hooks/Icons/useGetMemberRoleIcons'
 import { ServerMemberProps } from './types'
 import { cn } from '@/lib/utils'
 import UserAvatar from '@/components/UserAvatar'
