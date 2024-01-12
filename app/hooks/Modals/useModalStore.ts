@@ -11,7 +11,7 @@ export enum Modals {
   DELETE_CHANNEL = 'deleteChannel',
 }
 
-interface ModalData {
+export interface ModalData {
   server?: Server
   channelType?: ChannelType
   channel?: Channel
