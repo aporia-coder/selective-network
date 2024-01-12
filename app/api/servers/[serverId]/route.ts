@@ -1,9 +1,9 @@
 import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
 export async function PATCH(
-  res: Response,
+  res: NextRequest,
   { params }: { params: { serverId: string } }
 ) {
   const { name, imageUrl } = await res.json()
