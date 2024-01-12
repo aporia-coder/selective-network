@@ -1,14 +1,8 @@
 'use client'
 
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog'
+import { Dialog, DialogContent, DialogFooter } from '@/components/ui/dialog'
 import { BaseModalProps } from './types'
+import ModalHeader from './ModalHeader'
 
 const BaseModal = ({
   isOpen,
@@ -20,12 +14,7 @@ const BaseModal = ({
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
-        <DialogHeader className="pt-8 px-6">
-          <DialogTitle className="text-2xl text-center font-bold">
-            {headerTitle}
-          </DialogTitle>
-          <DialogDescription>{description}</DialogDescription>
-        </DialogHeader>
+        <ModalHeader headerTitle={headerTitle} description={description} />
         <DialogFooter className="bg-gray-100 px-6 py-4">{button}</DialogFooter>
       </DialogContent>
     </Dialog>

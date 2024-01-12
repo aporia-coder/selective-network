@@ -25,15 +25,15 @@ import FileUpload from '../FileUpload'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { Modals, useModal } from '@/app/hooks/Modals/useModalStore'
+import { useIsModalOpen } from '@/app/hooks/Modals/useIsModalOpen'
 import { useEffect } from 'react'
 
-const EditServerModal = () => {
-  // this can be the same modal as create server but with isEdit conditionals
-  const { isOpen, onClose, type, data } = useModal()
-  const { server } = data
-  const router = useRouter()
+const CreateEditServerModal = () => {
+  const { isOpen, onClose, type, meta } = useModal()
+  const { isEdit, server } = meta
+  const isModalOpen = useIsModalOpen(isOpen, type, Modals.CREATE_EDIT_SERVER)
 
-  const isModalOpen = isOpen && type === Modals.EDIT_SERVER
+  const router = useRouter()
 
   const formSchema = z.object({
     name: z.string().min(1, {
@@ -47,17 +47,17 @@ const EditServerModal = () => {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: '',
-      imageUrl: '',
+      name: isEdit ? (server?.name as string) : '',
+      imageUrl: isEdit ? (server?.imageUrl as string) : '',
     },
   })
 
   useEffect(() => {
-    if (server) {
-      form.setValue('name', server?.name)
-      form.setValue('imageUrl', server?.imageUrl)
+    if (isEdit) {
+      form.setValue('name', server?.name as string)
+      form.setValue('imageUrl', server?.imageUrl as string)
     }
-  }, [form, server])
+  }, [form, isEdit, server])
 
   const handleModalClose = () => {
     form.reset()
@@ -68,7 +68,7 @@ const EditServerModal = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await axios.patch(`/api/servers/${server?.id}`, values)
+      await axios.post('/api/servers', values)
       form.reset()
       router.refresh()
       onClose()
@@ -85,8 +85,9 @@ const EditServerModal = () => {
             Customize your server
           </DialogTitle>
           <DialogDescription className="text-center text-zinc-500">
-            Give your server a unique personality with a name and an image, you
-            can always change it later!
+            {!isEdit
+              ? 'Give your server a unique personality with a name and an image, you can always change it later!'
+              : 'Edit your server name and image'}
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
@@ -130,7 +131,7 @@ const EditServerModal = () => {
             </div>
             <DialogFooter className="bg-gray-100 px-6 py-4">
               <Button variant="primary" disabled={isLoading}>
-                Save
+                {isEdit ? 'Save' : 'Create'}
               </Button>
             </DialogFooter>
           </form>
@@ -140,4 +141,4 @@ const EditServerModal = () => {
   )
 }
 
-export default EditServerModal
+export default CreateEditServerModal

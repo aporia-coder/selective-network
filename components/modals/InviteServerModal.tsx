@@ -14,10 +14,10 @@ import { useIsModalOpen } from '@/app/hooks/Modals/useIsModalOpen'
 const InviteServerModal = () => {
   const [copied, setIsCopied] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const { isOpen, onClose, type, data, onOpen } = useModal()
+  const { isOpen, onClose, type, meta, onOpen } = useModal()
   const isModalOpen = useIsModalOpen(isOpen, type, Modals.INVITE)
 
-  const { server } = data
+  const { server } = meta
 
   const origin = useOrigin()
 

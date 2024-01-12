@@ -43,10 +43,10 @@ const ManageMembersModal = () => {
   const memberRoleIcons = useGetMemberRoleIcons()
   const router = useRouter()
   const [loadingId, setLoadingId] = useState('')
-  const { isOpen, onClose, type, data, onOpen } = useModal()
+  const { isOpen, onClose, type, meta, onOpen } = useModal()
   const isModalOpen = useIsModalOpen(isOpen, type, Modals.MANAGE_MEMBERS)
 
-  const { server } = data as { server: ServerWithMembersAndProfiles }
+  const { server } = meta as { server: ServerWithMembersAndProfiles }
 
   const handleKickMember = async (memberId: string) => {
     try {
