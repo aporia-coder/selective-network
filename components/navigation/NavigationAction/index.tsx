@@ -6,7 +6,7 @@ import { Modals, useModal } from '@/app/hooks/Modals/useModalStore'
 
 const NavigationAction = () => {
   const { onOpen } = useModal()
-  const handleOpenModal = () => onOpen(Modals.CREATE_SERVER)
+  const handleOpenModal = () => onOpen(Modals.CREATE_EDIT_SERVER)
 
   return (
     <div>

@@ -12,10 +12,10 @@ import { useIsModalOpen } from '@/app/hooks/Modals/useIsModalOpen'
 const DeleteChanelModal = () => {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
-  const { isOpen, onClose, type, data } = useModal()
+  const { isOpen, onClose, type, meta } = useModal()
   const isModalOpen = useIsModalOpen(isOpen, type, Modals.DELETE_CHANNEL)
 
-  const { server, channel } = data
+  const { server, channel } = meta
 
   const handleDeleteChannel = async () => {
     try {

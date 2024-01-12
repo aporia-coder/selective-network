@@ -11,10 +11,10 @@ import { useIsModalOpen } from '@/app/hooks/Modals/useIsModalOpen'
 const LeaveServerModal = () => {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
-  const { isOpen, onClose, type, data } = useModal()
+  const { isOpen, onClose, type, meta } = useModal()
   const isModalOpen = useIsModalOpen(isOpen, type, Modals.LEAVE_SERVER)
 
-  const { server } = data
+  const { server } = meta
 
   const handleLeaveServer = async () => {
     try {

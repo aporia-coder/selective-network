@@ -2,7 +2,7 @@ import { ChannelType, Server, Channel } from '@prisma/client'
 import { create } from 'zustand'
 
 export enum Modals {
-  CREATE_SERVER = 'createServer',
+  CREATE_EDIT_SERVER = 'createEditServer',
   INVITE = 'invite',
   EDIT_SERVER = 'editServer',
   MANAGE_MEMBERS = 'manageMembers',
@@ -20,7 +20,7 @@ interface ModalData {
 
 interface ModalStore {
   type: Modals | null
-  data: ModalData
+  meta: ModalData
   isOpen: boolean
   onOpen: (type: Modals, data?: ModalData) => void
   onClose: () => void
@@ -29,7 +29,7 @@ interface ModalStore {
 export const useModal = create<ModalStore>((set) => ({
   type: null,
   isOpen: false,
-  data: {},
-  onOpen: (type, data = {}) => set({ isOpen: true, type, data }),
+  meta: {},
+  onOpen: (type, meta = {}) => set({ isOpen: true, type, meta }),
   onClose: () => set({ isOpen: false, type: null }),
 }))

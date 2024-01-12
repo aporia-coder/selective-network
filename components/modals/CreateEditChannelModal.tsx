@@ -36,11 +36,11 @@ import { useEffect } from 'react'
 import { useIsModalOpen } from '@/app/hooks/Modals/useIsModalOpen'
 
 const CreateEditChannelModal = () => {
-  const { isOpen, onClose, type, data } = useModal()
+  const { isOpen, onClose, type, meta } = useModal()
   const isModalOpen = useIsModalOpen(isOpen, type, Modals.CREATE_EDIT_CHANNEL)
   const router = useRouter()
   const { serverId } = useParams()
-  const { channelType, isEdit, channel } = data
+  const { channelType, isEdit, channel } = meta
 
   const formSchema = z.object({
     name: z
