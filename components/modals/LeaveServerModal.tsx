@@ -1,12 +1,12 @@
 'use client'
 
-import { Modals, useModal } from '@/app/hooks/useModalStore'
+import { Modals, useModal } from '@/app/hooks/Modals/useModalStore'
 import { Button } from '../ui/button'
 import { useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import BaseModal from './BaseModal'
-import { useIsModalOpen } from '@/app/hooks/useIsModalOpen'
+import { useIsModalOpen } from '@/app/hooks/Modals/useIsModalOpen'
 
 const LeaveServerModal = () => {
   const router = useRouter()

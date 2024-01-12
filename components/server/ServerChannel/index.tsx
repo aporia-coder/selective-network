@@ -7,7 +7,7 @@ import { Edit, Hash, Lock, Mic, Trash, Video } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useParams } from 'next/navigation'
 import ActionTooltip from '@/components/ActionTooltip'
-import { Modals, useModal } from '@/app/hooks/useModalStore'
+import { Modals, useModal } from '@/app/hooks/Modals/useModalStore'
 
 const ServerChannel = ({ channel, server, role }: ServerChannelProps) => {
   const { onOpen } = useModal()
@@ -15,6 +15,7 @@ const ServerChannel = ({ channel, server, role }: ServerChannelProps) => {
   // const { channelId, serverId } = useParams()
   // const router = useRouter()
 
+  // dupe code
   const channelIconList = useMemo(() => {
     return {
       [ChannelType.TEXT]: Hash,

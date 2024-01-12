@@ -5,7 +5,7 @@ import { ServerSectionProps } from './types'
 import { SidebarSectionTypes } from '@/app/globalTypes'
 import ActionTooltip from '@/components/ActionTooltip'
 import { Plus, Settings } from 'lucide-react'
-import { Modals, useModal } from '@/app/hooks/useModalStore'
+import { Modals, useModal } from '@/app/hooks/Modals/useModalStore'
 
 const ServerSection = ({
   label,
@@ -14,6 +14,7 @@ const ServerSection = ({
   channelType,
   server,
 }: ServerSectionProps) => {
+  console.log({ server })
   const { onOpen } = useModal()
   return (
     <div className="flex items-center justify-between py-2">

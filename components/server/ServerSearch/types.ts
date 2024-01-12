@@ -6,7 +6,7 @@ export interface ServerSearchProps {
     type: SidebarSectionTypes
     data:
       | {
-          icon: React.ReactNode
+          icon: React.ReactNode | undefined
           name: string
           id: string
         }[]

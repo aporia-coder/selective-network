@@ -22,7 +22,7 @@ import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import axios from 'axios'
 import { useParams, useRouter } from 'next/navigation'
-import { Modals, useModal } from '@/app/hooks/useModalStore'
+import { Modals, useModal } from '@/app/hooks/Modals/useModalStore'
 import {
   Select,
   SelectContent,
@@ -33,7 +33,7 @@ import {
 import { ChannelType } from '@prisma/client'
 import qs from 'query-string'
 import { useEffect } from 'react'
-import { useIsModalOpen } from '@/app/hooks/useIsModalOpen'
+import { useIsModalOpen } from '@/app/hooks/Modals/useIsModalOpen'
 
 const CreateEditChannelModal = () => {
   const { isOpen, onClose, type, data } = useModal()

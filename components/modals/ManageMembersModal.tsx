@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '../ui/dialog'
-import { Modals, useModal } from '@/app/hooks/useModalStore'
+import { Modals, useModal } from '@/app/hooks/Modals/useModalStore'
 import { ScrollArea } from '../ui/scroll-area'
 import UserAvatar from '../UserAvatar'
 import {
@@ -36,8 +36,8 @@ import {
 import { MemberRole } from '@prisma/client'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
-import { useGetMemberRoleIcons } from '@/app/hooks/useGetMemberRoleIcons'
-import { useIsModalOpen } from '@/app/hooks/useIsModalOpen'
+import { useGetMemberRoleIcons } from '@/app/hooks/Icons/useGetMemberRoleIcons'
+import { useIsModalOpen } from '@/app/hooks/Modals/useIsModalOpen'
 
 const ManageMembersModal = () => {
   const memberRoleIcons = useGetMemberRoleIcons()
