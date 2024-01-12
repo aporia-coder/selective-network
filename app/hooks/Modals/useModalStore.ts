@@ -9,6 +9,7 @@ export enum Modals {
   CREATE_EDIT_CHANNEL = 'createEditChannel',
   LEAVE_SERVER = 'leaveServer',
   DELETE_CHANNEL = 'deleteChannel',
+  DELETE_SERVER = 'deleteServer',
 }
 
 export interface ModalData {
