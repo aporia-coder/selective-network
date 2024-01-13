@@ -72,12 +72,10 @@ const ServerSearch = ({ data }: ServerSearchProps) => {
             return (
               <CommandGroup key={label}>
                 {innerData?.map(({ icon, name, id }) => (
-                  <>
-                    <CommandItem onSelect={() => onClick(id, type)} key={id}>
-                      {icon}
-                      <span>{name}</span>
-                    </CommandItem>
-                  </>
+                  <CommandItem onSelect={() => onClick(id, type)} key={id}>
+                    {icon}
+                    <span>{name}</span>
+                  </CommandItem>
                 ))}
               </CommandGroup>
             )
