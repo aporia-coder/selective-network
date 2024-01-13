@@ -1,3 +1,4 @@
+import { APP_URL } from '@/app/settings'
 import ServerSidebar from '@/components/server/ServerSidebar'
 import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
@@ -14,7 +15,10 @@ const ServerPageLayout = async ({
   // could turn this into a hook since its repeated a lot? or handle with redux logic?
   const profile = await currentProfile()
 
-  if (!profile) redirectToSignIn()
+  if (!profile)
+    return redirectToSignIn({
+      returnBackUrl: APP_URL,
+    })
 
   const server = await db.server.findUnique({
     // serverId comes from folder name
