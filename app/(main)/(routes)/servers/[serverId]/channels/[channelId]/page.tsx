@@ -1,4 +1,6 @@
+import { SectionTypes } from '@/app/globalTypes'
 import { APP_URL } from '@/app/settings'
+import ChatHeader from '@/components/Chat/ChatHeader'
 import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
 import { redirectToSignIn } from '@clerk/nextjs'
@@ -31,6 +33,14 @@ const ChannelPage = async ({
   })
 
   if (!channel || !member) return redirect('/')
+
+  return (
+    <ChatHeader
+      name={channel.name}
+      type={SectionTypes.CHANNEL}
+      serverId={serverId}
+    />
+  )
 }
 
 export default ChannelPage

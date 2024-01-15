@@ -7,7 +7,7 @@ import ServerSearch from '../ServerSearch'
 import { ChannelType } from '@prisma/client'
 import { Separator } from '../../ui/separator'
 import ServerSection from '../ServerSection'
-import { SidebarSectionTypes } from '@/app/globalTypes'
+import { SectionTypes } from '@/app/globalTypes'
 import ServerChannel from '../ServerChannel'
 import { useGetChannelTypeIcons } from '@/app/hooks/Icons/useGetChannelTypeIcons'
 import { useGetMemberRoleIcons } from '@/app/hooks/Icons/useGetMemberRoleIcons'
@@ -59,7 +59,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
 
   const textChannelSearchData = {
     label: 'Text Channels',
-    type: SidebarSectionTypes.CHANNEL,
+    type: SectionTypes.CHANNEL,
     data: textChannels?.map(({ id, name, type }) => ({
       id,
       name,
@@ -69,7 +69,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
 
   const audioChannelSearchData = {
     label: 'Voice Channels',
-    type: SidebarSectionTypes.CHANNEL,
+    type: SectionTypes.CHANNEL,
     data: audioChannels?.map(({ id, name, type }) => ({
       id,
       name,
@@ -79,7 +79,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
 
   const videoChannelSearchData = {
     label: 'Video Channels',
-    type: SidebarSectionTypes.CHANNEL,
+    type: SectionTypes.CHANNEL,
     data: videoChannels?.map(({ id, name, type }) => ({
       id,
       name,
@@ -89,7 +89,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
 
   const membersSearchData = {
     label: 'Members',
-    type: SidebarSectionTypes.MEMBER,
+    type: SectionTypes.MEMBER,
     data: members?.map(({ profile: { id, name }, role }) => ({
       id,
       name,
@@ -123,7 +123,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
             <ServerSection
               label="text channels"
               channelType={ChannelType.TEXT}
-              sectionType={SidebarSectionTypes.CHANNEL}
+              sectionType={SectionTypes.CHANNEL}
               role={role}
             />
             {textChannels.map((channel) => (
@@ -141,7 +141,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
             <ServerSection
               label="audio channels"
               channelType={ChannelType.AUDIO}
-              sectionType={SidebarSectionTypes.CHANNEL}
+              sectionType={SectionTypes.CHANNEL}
               role={role}
             />
             {audioChannels.map((channel) => (
@@ -159,7 +159,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
             <ServerSection
               label="video channels"
               channelType={ChannelType.VIDEO}
-              sectionType={SidebarSectionTypes.CHANNEL}
+              sectionType={SectionTypes.CHANNEL}
               role={role}
             />
             {videoChannels.map((channel) => (
@@ -176,7 +176,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
           <div className="mb-2">
             <ServerSection
               label="members"
-              sectionType={SidebarSectionTypes.MEMBER}
+              sectionType={SectionTypes.MEMBER}
               role={role}
               server={server}
             />

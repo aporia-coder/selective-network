@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/command'
 import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
-import { SidebarSectionTypes } from '@/app/globalTypes'
+import { SectionTypes } from '@/app/globalTypes'
 import { featureToggle } from '@/app/settings'
 
 const ServerSearch = ({ data }: ServerSearchProps) => {
@@ -35,10 +35,10 @@ const ServerSearch = ({ data }: ServerSearchProps) => {
     }
   }, [])
 
-  const onClick = (id: string, type: SidebarSectionTypes) => {
+  const onClick = (id: string, type: SectionTypes) => {
     setOpen(false)
 
-    if (type === SidebarSectionTypes.MEMBER) {
+    if (type === SectionTypes.MEMBER) {
       router.push(`/servers/${serverId}/conversations/${id}`)
     } else {
       router.push(`/servers/${serverId}/channels/${id}`)
