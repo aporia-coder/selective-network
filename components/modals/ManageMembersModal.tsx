@@ -15,7 +15,6 @@ import UserAvatar from '../UserAvatar'
 import {
   Check,
   Gavel,
-  Loader2,
   MoreVertical,
   Shield,
   ShieldCheck,
@@ -38,6 +37,7 @@ import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { useGetMemberRoleIcons } from '@/app/hooks/Icons/useGetMemberRoleIcons'
 import { useIsModalOpen } from '@/app/hooks/Modals/useIsModalOpen'
+import Loader from '../Loader'
 
 const ManageMembersModal = () => {
   const memberRoleIcons = useGetMemberRoleIcons()
@@ -177,7 +177,7 @@ const ManageMembersModal = () => {
                   </div>
                 )}
               {loadingId === member.id && (
-                <Loader2 className="animate-spin text-zinc-500 ml-auto w-4 h-4" />
+                <Loader className="ml-auto w-4 h-4" />
               )}
             </div>
           ))}

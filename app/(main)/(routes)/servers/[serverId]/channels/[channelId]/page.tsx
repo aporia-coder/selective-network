@@ -1,9 +1,7 @@
 import { SectionTypes } from '@/app/globalTypes'
-import { APP_URL } from '@/app/settings'
 import ChatHeader from '@/components/Chat/ChatHeader'
-import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
-import { redirectToSignIn } from '@clerk/nextjs'
+import { getCurrentUserProfile } from '@/lib/utils'
 import { redirect } from 'next/navigation'
 
 const ChannelPage = async ({
@@ -11,12 +9,7 @@ const ChannelPage = async ({
 }: {
   params: { serverId: string; channelId: string }
 }) => {
-  const profile = await currentProfile()
-
-  if (!profile)
-    return redirectToSignIn({
-      returnBackUrl: APP_URL,
-    })
+  const profile = await getCurrentUserProfile()
 
   const channel = await db.channel.findUnique({
     where: {

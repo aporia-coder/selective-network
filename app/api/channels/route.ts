@@ -1,11 +1,11 @@
-import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
+import { currentUser } from '@clerk/nextjs'
 import { MemberRole } from '@prisma/client'
 import { NextResponse } from 'next/server'
 
 export async function POST(req: Request) {
   try {
-    const profile = await currentProfile()
+    const profile = await currentUser()
     const { searchParams } = new URL(req.url)
 
     const serverId = searchParams.get('serverId')
