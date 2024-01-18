@@ -4,7 +4,8 @@ export type ServerWithMembersAndProfiles = Server & {
   members: (Member & { profile: Profile })[]
 }
 
-export enum SidebarSectionTypes {
+export enum SectionTypes {
   CHANNEL = 'channel',
   MEMBER = 'member',
+  CONVERSATION = 'conversation',
 }

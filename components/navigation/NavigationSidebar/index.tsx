@@ -1,17 +1,14 @@
-import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
-import { redirect } from 'next/navigation'
 import NavigationAction from '../NavigationAction'
 import { Separator } from '../../ui/separator'
 import { ScrollArea } from '../../ui/scroll-area'
 import NavigationItem from '../NavigationItem'
 import { ModeToggle } from '../../ModeToggle'
 import { UserButton } from '@clerk/nextjs'
+import { getCurrentUserProfile } from '@/lib/utils'
 
 const NavigationSidebar = async () => {
-  const profile = await currentProfile()
-
-  if (!profile) redirect('/')
+  const profile = await getCurrentUserProfile()
 
   const servers = await db.server.findMany({
     where: {
