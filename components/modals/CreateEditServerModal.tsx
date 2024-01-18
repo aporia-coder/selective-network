@@ -66,7 +66,7 @@ const CreateEditServerModal = () => {
 
   const isLoading = form.formState.isSubmitting
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+  const handleCreateServer = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.post('/api/servers', values)
       form.reset()
@@ -76,6 +76,19 @@ const CreateEditServerModal = () => {
       console.log(error)
     }
   }
+
+  const handleEditServer = async (values: z.infer<typeof formSchema>) => {
+    try {
+      await axios.patch(`/api/server/${server?.id}`, values)
+      form.reset()
+      router.refresh()
+      onClose()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const onSubmit = isEdit ? handleEditServer : handleCreateServer
 
   return (
     <Dialog open={isModalOpen} onOpenChange={handleModalClose}>

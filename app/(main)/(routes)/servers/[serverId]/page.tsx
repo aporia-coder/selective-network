@@ -1,7 +1,5 @@
-import { APP_URL } from '@/app/settings'
-import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
-import { redirectToSignIn } from '@clerk/nextjs'
+import { getCurrentUserProfile } from '@/lib/utils'
 import { redirect } from 'next/navigation'
 
 const ServerPage = async ({
@@ -9,12 +7,7 @@ const ServerPage = async ({
 }: {
   params: { serverId: string }
 }) => {
-  const profile = await currentProfile()
-
-  if (!profile)
-    return redirectToSignIn({
-      returnBackUrl: APP_URL,
-    })
+  const profile = await getCurrentUserProfile()
 
   const server = await db.server.findUnique({
     where: {
