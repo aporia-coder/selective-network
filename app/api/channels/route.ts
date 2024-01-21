@@ -1,19 +1,19 @@
 import { db } from '@/lib/db'
-import { currentUser } from '@clerk/nextjs'
+import { getCurrentUserProfile } from '@/lib/utils'
 import { MemberRole } from '@prisma/client'
 import { NextResponse } from 'next/server'
 
 export async function POST(req: Request) {
   try {
-    const profile = await currentUser()
+    const profile = await getCurrentUserProfile()
     const { searchParams } = new URL(req.url)
 
     const serverId = searchParams.get('serverId')
 
     const { name, type } = await req.json()
 
-    if (!profile) return new NextResponse('Unauthorized', { status: 401 })
     if (!serverId) return new NextResponse('Missing ID', { status: 400 })
+
     if (name === 'general')
       return new NextResponse(`Channel name cannnot be 'general'`)
 

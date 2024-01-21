@@ -2,8 +2,7 @@ import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { db } from './db'
 import { currentProfile } from './current-profile'
-import { redirectToSignIn } from '@clerk/nextjs'
-import { APP_URL } from '@/app/settings'
+import { redirect } from 'next/navigation'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -12,10 +11,7 @@ export function cn(...inputs: ClassValue[]) {
 export const getCurrentUserProfile = async () => {
   const profile = await currentProfile()
 
-  if (!profile)
-    return redirectToSignIn({
-      returnBackUrl: APP_URL,
-    })
+  if (!profile) return redirect('/sign-in')
 
   return profile
 }
