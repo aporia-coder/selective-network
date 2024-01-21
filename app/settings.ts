@@ -6,7 +6,7 @@ export const featureToggle = {
 }
 
 export const NEXT_APP_URLS = {
-  development: 'http:localhost:3000/',
+  development: 'http:localhost:3000',
   production: '',
   test: '',
 }

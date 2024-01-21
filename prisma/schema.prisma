@@ -83,7 +83,7 @@ model Channel {
   server Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
 
   profileId String
-  profile Profile @relation(fields: [profileId], references: [id])
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
 
   messages Message[]
 
@@ -146,5 +146,3 @@ model DirectMessage {
   @@index([memberId])
   @@index([conversationId])
 }
-
-

@@ -74,21 +74,38 @@ const CreateEditChannelModal = () => {
 
   const handleModalClose = () => {
     form.reset()
+    router.refresh()
     onClose()
   }
 
   const isLoading = form.formState.isSubmitting
 
+  // const handleCreateChannel = async (values: z.infer<typeof formSchema>) => {
+  //   try {
+  //     const url = qs.stringifyUrl({
+  //       url: `/api/channels`,
+  //       query: {
+  //         serverId,
+  //       },
+  //     })
+
+  //     await axios.post(url, values)
+  //     handleModalClose()
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
   const handleCreateChannel = async (values: z.infer<typeof formSchema>) => {
     try {
       const url = qs.stringifyUrl({
-        url: `/api/channels`,
+        url: '/api/channels',
         query: {
-          serverId,
+          serverId: serverId,
         },
       })
-
       await axios.post(url, values)
+
       form.reset()
       router.refresh()
       onClose()
@@ -107,9 +124,7 @@ const CreateEditChannelModal = () => {
       })
 
       await axios.patch(url, values)
-      form.reset()
-      router.refresh()
-      onClose()
+      handleModalClose()
     } catch (error) {
       console.log(error)
     }
