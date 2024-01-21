@@ -1,7 +1,6 @@
-import ServerSidebar from '@/components/server/server-sidebar'
-import { currentProfile } from '@/lib/current-profile'
+import ServerSidebar from '@/components/server/ServerSidebar'
 import { db } from '@/lib/db'
-import { redirectToSignIn } from '@clerk/nextjs'
+import { getCurrentUserProfile } from '@/lib/utils'
 import { redirect } from 'next/navigation'
 
 const ServerPageLayout = async ({
@@ -12,9 +11,7 @@ const ServerPageLayout = async ({
   params: { serverId: string }
 }) => {
   // could turn this into a hook since its repeated a lot? or handle with redux logic?
-  const profile = await currentProfile()
-
-  if (!profile) redirectToSignIn()
+  const profile = await getCurrentUserProfile()
 
   const server = await db.server.findUnique({
     // serverId comes from folder name

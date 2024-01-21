@@ -4,8 +4,8 @@ export type ServerWithMembersAndProfiles = Server & {
   members: (Member & { profile: Profile })[]
 }
 
-export enum MemberRoles {
-  ADMIN = 'ADMIN',
-  MODERATOR = 'MODERATOR',
-  GUEST = 'GUEST',
+export enum SectionTypes {
+  CHANNEL = 'channel',
+  MEMBER = 'member',
+  CONVERSATION = 'conversation',
 }

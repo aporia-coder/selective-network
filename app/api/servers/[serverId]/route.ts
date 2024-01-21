@@ -1,10 +1,10 @@
 import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
 export async function PATCH(
-  res: Response,
-  { params }: { params: { serverId: string } }
+  res: NextRequest,
+  { params: { serverId } }: { params: { serverId: string } }
 ) {
   const { name, imageUrl } = await res.json()
   try {
@@ -14,12 +14,35 @@ export async function PATCH(
 
     const server = await db.server.update({
       where: {
-        id: params.serverId,
+        id: serverId,
         profileId: profile.id,
       },
       data: {
         name,
         imageUrl,
+      },
+    })
+
+    return NextResponse.json(server)
+  } catch (error) {
+    console.log('[SERVER_ID]', error)
+    return new NextResponse('Internal Error', { status: 500 })
+  }
+}
+
+export async function DELETE(
+  req: Request,
+  { params: { serverId } }: { params: { serverId: string } }
+) {
+  try {
+    const profile = await currentProfile()
+
+    if (!profile) return new NextResponse('Unauthorized', { status: 401 })
+
+    const server = await db.server.delete({
+      where: {
+        id: serverId,
+        profileId: profile.id,
       },
     })
 
