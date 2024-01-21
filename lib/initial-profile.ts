@@ -1,15 +1,12 @@
-import { redirectToSignIn, currentUser } from '@clerk/nextjs'
+import { currentUser } from '@clerk/nextjs'
 
 import { db } from './db'
-import { APP_URL } from '@/app/settings'
+import { redirect } from 'next/navigation'
 
 export const initialProfile = async () => {
   const user = await currentUser()
 
-  if (!user)
-    return redirectToSignIn({
-      returnBackUrl: APP_URL,
-    })
+  if (!user) return redirect('/sign-in')
 
   const profile = await db.profile.findUnique({
     where: {

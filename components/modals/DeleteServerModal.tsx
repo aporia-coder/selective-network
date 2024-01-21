@@ -17,6 +17,12 @@ const DeleteServerModal = () => {
 
   const isModalOpen = useIsModalOpen(isOpen, type, Modals.DELETE_SERVER)
 
+  const handleModalClose = () => {
+    router.push('/')
+    router.refresh()
+    onClose()
+  }
+
   const handleDeleteServer = async () => {
     try {
       setIsLoading(true)
@@ -26,10 +32,7 @@ const DeleteServerModal = () => {
       })
 
       await axios.delete(url)
-
-      router.push('/')
-      router.refresh()
-      onClose()
+      handleModalClose()
     } catch (error) {
       console.log(error)
     } finally {
