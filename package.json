@@ -73,7 +73,8 @@
     "prettier": "^3.1.1",
     "prisma": "^5.8.1",
     "tailwindcss": "^3.3.0",
-    "typescript": "*"
+    "typescript": "*",
+    "vercel": "^33.2.0"
   },
   "config": {
     "commitizen": {
