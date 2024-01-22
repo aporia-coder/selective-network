@@ -13,6 +13,15 @@ jobs:
   Deploy-Production:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+      - run: yarn install --immutable
       - uses: actions/checkout@v4
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
