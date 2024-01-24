@@ -10,6 +10,7 @@ export enum Modals {
   LEAVE_SERVER = 'leaveServer',
   DELETE_CHANNEL = 'deleteChannel',
   DELETE_SERVER = 'deleteServer',
+  ADD_FILE = 'addFile',
 }
 
 export interface ModalData {
@@ -17,6 +18,8 @@ export interface ModalData {
   channelType?: ChannelType
   channel?: Channel
   isEdit?: boolean
+  apiUrl?: string
+  query?: Record<string, any>
 }
 
 interface ModalStore {
