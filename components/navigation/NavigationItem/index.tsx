@@ -17,7 +17,7 @@ const NavigationItem = ({ id, imageUrl, name }: NavigationItemProps) => {
 
   const handleChangeServer = () => router.push(`/servers/${id}`)
 
-  const isActive = params.serverId === id
+  const isActive = params?.serverId === id
 
   return (
     <ActionTooltip

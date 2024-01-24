@@ -36,11 +36,11 @@ import { useEffect } from 'react'
 import { useIsModalOpen } from '@/app/hooks/Modals/useIsModalOpen'
 
 const CreateEditChannelModal = () => {
+  const router = useRouter()
   const { isOpen, onClose, type, meta } = useModal()
   const isModalOpen = useIsModalOpen(isOpen, type, Modals.CREATE_EDIT_CHANNEL)
-  const router = useRouter()
-  const { serverId } = useParams()
   const { channelType, isEdit, channel } = meta
+  const { serverId } = useParams()
 
   const formSchema = z.object({
     name: z
@@ -80,35 +80,16 @@ const CreateEditChannelModal = () => {
 
   const isLoading = form.formState.isSubmitting
 
-  // const handleCreateChannel = async (values: z.infer<typeof formSchema>) => {
-  //   try {
-  //     const url = qs.stringifyUrl({
-  //       url: `/api/channels`,
-  //       query: {
-  //         serverId,
-  //       },
-  //     })
-
-  //     await axios.post(url, values)
-  //     handleModalClose()
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
-
   const handleCreateChannel = async (values: z.infer<typeof formSchema>) => {
     try {
       const url = qs.stringifyUrl({
         url: '/api/channels',
         query: {
-          serverId: serverId,
+          serverId,
         },
       })
       await axios.post(url, values)
-
-      form.reset()
-      router.refresh()
-      onClose()
+      handleModalClose()
     } catch (error) {
       console.log(error)
     }

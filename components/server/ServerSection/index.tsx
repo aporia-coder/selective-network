@@ -24,7 +24,9 @@ const ServerSection = ({
         <ActionTooltip label={label}>
           <button
             className="text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300 transition"
-            onClick={() => onOpen(Modals.CREATE_EDIT_CHANNEL, { channelType })}
+            onClick={() =>
+              onOpen(Modals.CREATE_EDIT_CHANNEL, { channelType, server })
+            }
           >
             <Plus className="w-4 h-4" />
           </button>

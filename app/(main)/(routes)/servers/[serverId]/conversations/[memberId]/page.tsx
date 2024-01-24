@@ -1,5 +1,6 @@
 import { SectionTypes } from '@/app/globalTypes'
 import ChatHeader from '@/components/Chat/ChatHeader'
+import ChatInput from '@/components/Chat/ChatInput'
 import { db } from '@/lib/db'
 import { findOrCreateConversation, getCurrentUserProfile } from '@/lib/utils'
 import { redirect } from 'next/navigation'
@@ -46,6 +47,16 @@ const MemberPage = async ({
         serverId={serverId}
         type={SectionTypes.CONVERSATION}
         imageUrl={otherMember.profile.imageUrl}
+      />
+      <div className="flex-1">Future Messages</div>
+      <ChatInput
+        type={SectionTypes.MEMBER}
+        apiUrl="/api/socket/messages"
+        name={otherMember.profile.name}
+        query={{
+          channelId,
+          serverId,
+        }}
       />
     </div>
   )
