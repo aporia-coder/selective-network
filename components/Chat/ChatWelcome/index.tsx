@@ -2,9 +2,9 @@
 
 import { SectionTypes } from '@/app/globalTypes'
 import { Hash } from 'lucide-react'
-import { ChatMessageProps } from '../ChatMessage/types'
+import { ChatWelcomeProps } from './types'
 
-const ChatWelcome = ({ type, name }: ChatMessageProps) => {
+const ChatWelcome = ({ type, name }: ChatWelcomeProps) => {
   // use channel icon hook here
 
   return (

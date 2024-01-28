@@ -37,6 +37,7 @@ const ChannelPage = async ({
         type={SectionTypes.CHANNEL}
         serverId={serverId}
       />
+      <ChatWelcome name={channel.name} type={SectionTypes.CHANNEL} />
       <ChatMessage
         type={SectionTypes.CHANNEL}
         member={member}
@@ -50,11 +51,6 @@ const ChannelPage = async ({
           channelId: channel.id,
           serverId: channel.serverId,
         }}
-      />
-      <ChatWelcome
-        name={channel.name}
-        type={SectionTypes.CHANNEL}
-        member={member}
       />
       <ChatInput
         type={SectionTypes.CONVERSATION}
