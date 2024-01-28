@@ -61,6 +61,7 @@ const CreateEditServerModal = () => {
 
   const handleModalClose = () => {
     form.reset()
+    router.refresh()
     onClose()
   }
 
@@ -69,9 +70,7 @@ const CreateEditServerModal = () => {
   const handleCreateServer = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.post('/api/servers', values)
-      form.reset()
-      router.refresh()
-      onClose()
+      handleModalClose()
     } catch (error) {
       console.log(error)
     }
@@ -80,9 +79,7 @@ const CreateEditServerModal = () => {
   const handleEditServer = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.patch(`/api/servers/${server?.id}`, values)
-      form.reset()
-      router.refresh()
-      onClose()
+      handleModalClose()
     } catch (error) {
       console.log(error)
     }

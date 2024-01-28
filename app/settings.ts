@@ -5,6 +5,8 @@ export const featureToggle = {
   keyboardShortcutSearch: true,
 }
 
+export const MESSAGE_BATCH = 10
+
 export const NEXT_APP_URLS = {
   development: 'http:localhost:3000',
   production: '',
