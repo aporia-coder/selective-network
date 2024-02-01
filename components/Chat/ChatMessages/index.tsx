@@ -8,6 +8,7 @@ import { MessageWithMemberAndProfile } from '@/app/globalTypes'
 import ChatItem from '../ChatItem'
 import { ElementRef, useRef } from 'react'
 import ChatWelcome from '../ChatWelcome'
+import useChatScroll from '@/app/hooks/useChatScroll'
 
 const ChatMessages = ({
   name,
@@ -32,6 +33,14 @@ const ChatMessages = ({
       paramKey,
       paramValue,
     })
+
+  useChatScroll({
+    chatRef,
+    bottomRef,
+    loadMore: fetchNextPage,
+    shouldLoadMore: !isFetchingNextPage && !!hasNextPage,
+    data,
+  })
 
   if (status === 'error') {
     return (
