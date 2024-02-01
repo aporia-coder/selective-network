@@ -7,7 +7,7 @@ export const featureToggle = {
 
 export const MESSAGE_BATCH = 10
 
-export const DATE_FORMAT = 'ddd, MMM D, YYYY h:mm A'
+export const DATE_FORMAT = 'LLL'
 
 export const NEXT_APP_URLS = {
   development: 'http:localhost:3000',
