@@ -1,8 +1,7 @@
 import { SectionTypes } from '@/app/globalTypes'
 import ChatHeader from '@/components/Chat/ChatHeader'
 import ChatInput from '@/components/Chat/ChatInput'
-import ChatMessage from '@/components/Chat/ChatMessage'
-import ChatWelcome from '@/components/Chat/ChatWelcome'
+import ChatMessages from '@/components/Chat/ChatMessages'
 import { db } from '@/lib/db'
 import { getCurrentUserProfile } from '@/lib/utils'
 import { redirect } from 'next/navigation'
@@ -37,8 +36,7 @@ const ChannelPage = async ({
         type={SectionTypes.CHANNEL}
         serverId={serverId}
       />
-      <ChatWelcome name={channel.name} type={SectionTypes.CHANNEL} />
-      <ChatMessage
+      <ChatMessages
         type={SectionTypes.CHANNEL}
         member={member}
         name={channel.name}

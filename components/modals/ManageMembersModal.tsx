@@ -40,7 +40,7 @@ import { useIsModalOpen } from '@/app/hooks/Modals/useIsModalOpen'
 import Loader from '../Loader'
 
 const ManageMembersModal = () => {
-  const memberRoleIcons = useGetMemberRoleIcons()
+  const memberRoleIcons = useGetMemberRoleIcons('ml-2', 'ml-2')
   const router = useRouter()
   const [loadingId, setLoadingId] = useState('')
   const { isOpen, onClose, type, meta, onOpen } = useModal()

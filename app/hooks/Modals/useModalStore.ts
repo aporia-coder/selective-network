@@ -11,6 +11,7 @@ export enum Modals {
   DELETE_CHANNEL = 'deleteChannel',
   DELETE_SERVER = 'deleteServer',
   ADD_FILE = 'addFile',
+  DELETE_MESSAGE = 'deleteMessage',
 }
 
 export interface ModalData {
