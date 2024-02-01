@@ -20,6 +20,11 @@ import { Input } from '@/components/ui/input'
 import axios from 'axios'
 import { Modals, useModal } from '@/app/hooks/Modals/useModalStore'
 import { useParams, useRouter } from 'next/navigation'
+import dayjs from 'dayjs'
+import localizedformat from 'dayjs/plugin/localizedFormat'
+import { DATE_FORMAT } from '@/app/settings'
+
+dayjs.extend(localizedformat)
 
 const ChatItem = ({
   id,
@@ -123,7 +128,7 @@ const ChatItem = ({
               </ActionTooltip>
             </div>
             <span className="text-xs text-zinc-500 dark:text-zinc-400">
-              {timestamp}
+              {dayjs(timestamp).format(DATE_FORMAT)}
             </span>
           </div>
           {isImage && (
