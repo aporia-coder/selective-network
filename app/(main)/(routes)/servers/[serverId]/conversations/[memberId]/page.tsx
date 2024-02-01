@@ -48,16 +48,17 @@ const MemberPage = async ({
         type={SectionTypes.CONVERSATION}
         imageUrl={otherMember.profile.imageUrl}
       />
-      <div className="flex-1">Future Messages</div>
-      <ChatInput
-        type={SectionTypes.MEMBER}
-        apiUrl="/api/socket/messages"
-        name={otherMember.profile.name}
-        query={{
-          channelId,
-          serverId,
-        }}
-      />
+      <div className="overflow-auto">
+        <div className="flex-1">future messages</div>
+        <ChatInput
+          type={SectionTypes.MEMBER}
+          apiUrl="/api/socket/messages"
+          name={otherMember.profile.name}
+          query={{
+            serverId,
+          }}
+        />
+      </div>
     </div>
   )
 }

@@ -20,6 +20,7 @@ export async function GET(req: Request) {
         where: {
           channelId,
         },
+        take: MESSAGE_BATCH,
         include: {
           member: {
             include: {
@@ -39,6 +40,7 @@ export async function GET(req: Request) {
         cursor: {
           id: cursor,
         },
+        take: MESSAGE_BATCH,
         skip: 1,
         include: {
           member: {

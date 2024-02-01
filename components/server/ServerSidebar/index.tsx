@@ -16,7 +16,7 @@ import ServerMember from '../ServerMember'
 
 const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
   const channelTypeIcons = useGetChannelTypeIcons()
-  const memberRoleIcons = useGetMemberRoleIcons()
+  const memberRoleIcons = useGetMemberRoleIcons('mr-2', 'mr-2')
 
   const profile = await currentProfile()
   if (!profile) redirect('/')
