@@ -9,9 +9,9 @@ import { useParams, useRouter } from 'next/navigation'
 const ServerMember = ({ server, member }: ServerMemberProps) => {
   const router = useRouter()
   const memberRoleIcons = useGetMemberRoleIcons('ml-2', 'ml-2')
-  const { memberId } = useParams()
+  const params = useParams()
 
-  const isActive = memberId === member.id
+  const isActive = params?.memberId === member.id
 
   const handleSelectMember = () =>
     router.push(`/servers/${server.id}/conversations/${member.id}`)

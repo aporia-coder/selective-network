@@ -11,7 +11,7 @@ import { ModalData, Modals, useModal } from '@/app/hooks/Modals/useModalStore'
 
 const ServerChannel = ({ channel, server, role }: ServerChannelProps) => {
   const { onOpen } = useModal()
-  const { channelId } = useParams()
+  const params = useParams()
   const router = useRouter()
 
   // dupe code
@@ -24,8 +24,8 @@ const ServerChannel = ({ channel, server, role }: ServerChannelProps) => {
   }, [])
 
   const isChannelActive = useMemo(() => {
-    return channelId === channel.id
-  }, [channel, channelId])
+    return params?.channelId === channel.id
+  }, [channel, params?.channelId])
 
   const Icon = channelIconList[channel.type]
 

@@ -40,7 +40,7 @@ const ChatItem = ({
 }: ChatItemProps) => {
   const [isEditing, setIsEditing] = useState(false)
   const router = useRouter()
-  const { serverId } = useParams()
+  const params = useParams()
   const { onOpen } = useModal()
 
   const formSchema = z.object({
@@ -88,7 +88,7 @@ const ChatItem = ({
 
   const handleSelectMember = () => {
     if (member.id === currentMember.id) return
-    router.push(`/servers/${serverId}/conversations/${member.id}`)
+    router.push(`/servers/${params?.serverId}/conversations/${member.id}`)
   }
 
   const memberRoleIcons = useGetMemberRoleIcons('ml-2', 'ml-2')

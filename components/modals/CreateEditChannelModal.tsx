@@ -40,7 +40,7 @@ const CreateEditChannelModal = () => {
   const { isOpen, onClose, type, meta } = useModal()
   const isModalOpen = useIsModalOpen(isOpen, type, Modals.CREATE_EDIT_CHANNEL)
   const { channelType, isEdit, channel } = meta
-  const { serverId } = useParams()
+  const params = useParams()
 
   const formSchema = z.object({
     name: z
@@ -85,7 +85,7 @@ const CreateEditChannelModal = () => {
       const url = qs.stringifyUrl({
         url: '/api/channels',
         query: {
-          serverId,
+          serverId: params?.serverId,
         },
       })
       await axios.post(url, values)
@@ -100,7 +100,7 @@ const CreateEditChannelModal = () => {
       const url = qs.stringifyUrl({
         url: `/api/channels/${channel?.id}`,
         query: {
-          serverId,
+          serverId: params?.serverId,
         },
       })
 
