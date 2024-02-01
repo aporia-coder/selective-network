@@ -17,7 +17,7 @@ import { featureToggle } from '@/app/settings'
 
 const ServerSearch = ({ data }: ServerSearchProps) => {
   const [open, setOpen] = useState(false)
-  const { serverId } = useParams()
+  const params = useParams()
   const router = useRouter()
 
   useEffect(() => {
@@ -39,9 +39,9 @@ const ServerSearch = ({ data }: ServerSearchProps) => {
     setOpen(false)
 
     if (type === SectionTypes.MEMBER) {
-      router.push(`/servers/${serverId}/conversations/${id}`)
+      router.push(`/servers/${params?.serverId}/conversations/${id}`)
     } else {
-      router.push(`/servers/${serverId}/channels/${id}`)
+      router.push(`/servers/${params?.serverId}/channels/${id}`)
     }
   }
 
