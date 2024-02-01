@@ -18,6 +18,7 @@ const useChatQuery = ({
   const { isConnected } = useSocket()
 
   const fetchMessages = async (pageParam: number | undefined) => {
+    console.log(pageParam)
     try {
       const url = qs.stringifyUrl(
         {
