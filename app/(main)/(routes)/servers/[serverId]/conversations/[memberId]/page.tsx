@@ -1,6 +1,7 @@
 import { SectionTypes } from '@/app/globalTypes'
 import ChatHeader from '@/components/Chat/ChatHeader'
 import ChatInput from '@/components/Chat/ChatInput'
+import ChatMessages from '@/components/Chat/ChatMessages'
 import { db } from '@/lib/db'
 import { findOrCreateConversation, getCurrentUserProfile } from '@/lib/utils'
 import { redirect } from 'next/navigation'
@@ -48,17 +49,27 @@ const MemberPage = async ({
         type={SectionTypes.CONVERSATION}
         imageUrl={otherMember.profile.imageUrl}
       />
-      <div className="overflow-auto">
-        <div className="flex-1">future messages</div>
-        <ChatInput
-          type={SectionTypes.MEMBER}
-          apiUrl="/api/socket/messages"
-          name={otherMember.profile.name}
-          query={{
-            serverId,
-          }}
-        />
-      </div>
+      <ChatMessages
+        apiUrl="/api/direct-messages"
+        chatId={conversation.id}
+        member={currentMember}
+        name={otherMember.profile.name}
+        paramKey="conversationId"
+        paramValue={conversation.id}
+        socketUrl="/api/socket/direct-messages"
+        type={SectionTypes.CONVERSATION}
+        socketQuery={{
+          conversationId: conversation.id,
+        }}
+      />
+      <ChatInput
+        type={SectionTypes.CONVERSATION}
+        apiUrl="/api/socket/direct-messages"
+        name={otherMember.profile.name}
+        query={{
+          conversationId: conversation.id,
+        }}
+      />
     </div>
   )
 }
