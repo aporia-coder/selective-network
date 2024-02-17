@@ -98,7 +98,6 @@ const ChatMessages = ({
               key={message.id}
               socketUrl={socketUrl}
               socketQuery={socketQuery}
-              // format later
               timestamp={message.createdAt as unknown as string}
             />
           ))
