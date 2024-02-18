@@ -48,7 +48,9 @@ const CreateEditServerModal = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: isEdit ? (server?.name as string) : '',
-      imageUrl: isEdit ? (server?.imageUrl as string) : '',
+      imageUrl: isEdit
+        ? (server?.imageUrl as string)
+        : '/blank_profile_picture.png',
     },
   })
 
@@ -114,6 +116,7 @@ const CreateEditServerModal = () => {
                           endpoint="serverImage"
                           value={field.value}
                           onChange={field.onChange}
+                          form={form}
                         />
                       </FormControl>
                     </FormItem>

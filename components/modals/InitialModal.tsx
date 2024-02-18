@@ -47,7 +47,7 @@ const InitialModal = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
-      imageUrl: '',
+      imageUrl: '/blank_profile_picture.png',
     },
   })
 
@@ -92,6 +92,7 @@ const InitialModal = () => {
                           endpoint="serverImage"
                           value={field.value}
                           onChange={field.onChange}
+                          form={form}
                         />
                       </FormControl>
                     </FormItem>
