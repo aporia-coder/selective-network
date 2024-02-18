@@ -92,7 +92,6 @@ const InitialModal = () => {
                           endpoint="serverImage"
                           value={field.value}
                           onChange={field.onChange}
-                          form={form}
                         />
                       </FormControl>
                     </FormItem>

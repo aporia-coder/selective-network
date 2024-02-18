@@ -3,29 +3,18 @@ import '@uploadthing/react/styles.css'
 import { X } from 'lucide-react'
 import Image from 'next/image'
 import PdfDisplay from '../PdfDisplay'
-import { UseFormReturn } from 'react-hook-form'
 
 interface FileUploadProps {
   endpoint: 'serverImage' | 'messageFile'
   value: string
   onChange: (url?: string) => void
-  form?: UseFormReturn<
-    {
-      name: string
-      imageUrl: string
-    },
-    any,
-    undefined
-  >
 }
 
-const FileUpload = ({ endpoint, value, onChange, form }: FileUploadProps) => {
+const FileUpload = ({ endpoint, value, onChange }: FileUploadProps) => {
   // extracting filtetype, either image or pdf
   const fileType = value.split('.').pop()
 
   const isImage = fileType !== 'pdf'
-
-  const resetImage = () => form?.setValue('imageUrl', '')
 
   // check if value exists and is an image
   if (value && isImage) {
@@ -34,7 +23,7 @@ const FileUpload = ({ endpoint, value, onChange, form }: FileUploadProps) => {
         <Image src={value} fill alt="Upload Image" className="rounded-full" />
         <button
           className="bg-rose-500 text-white p-2 rounded-full absolute top-0 left-32 shadow-sm"
-          onClick={resetImage}
+          onClick={() => onChange('')}
         >
           <X className="h-4 w-4" />
         </button>
