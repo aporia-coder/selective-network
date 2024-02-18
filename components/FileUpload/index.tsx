@@ -14,19 +14,24 @@ const FileUpload = ({ endpoint, value, onChange }: FileUploadProps) => {
   // extracting filtetype, either image or pdf
   const fileType = value.split('.').pop()
 
+  const isImage = fileType !== 'pdf'
+
   // check if value exists and is an image
-  if (value && fileType !== 'pdf') {
+  if (value && isImage) {
     return (
       <div className="relative h-40 w-40">
         <Image src={value} fill alt="Upload Image" className="rounded-full" />
-        <button className="bg-rose-500 text-white p-2 rounded-full absolute top-0 left-32 shadow-sm">
+        <button
+          className="bg-rose-500 text-white p-2 rounded-full absolute top-0 left-32 shadow-sm"
+          onClick={() => onChange('')}
+        >
           <X className="h-4 w-4" />
         </button>
       </div>
     )
   }
 
-  if (value && fileType === 'pdf') {
+  if (value && !isImage) {
     return (
       <PdfDisplay value={value} label={value} onChange={() => onChange('')} />
     )
