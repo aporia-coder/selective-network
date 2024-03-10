@@ -3,6 +3,7 @@ import { ChatHeaderProps } from './types'
 import UserAvatar from '@/components/UserAvatar'
 import { Hash } from 'lucide-react'
 import SocketIndicator from '@/components/SocketIndicator'
+import { ChatVideoButton } from '../ChatVideoButton'
 
 const ChatHeader = ({ type, imageUrl, name, serverId }: ChatHeaderProps) => {
   return (
@@ -15,13 +16,10 @@ const ChatHeader = ({ type, imageUrl, name, serverId }: ChatHeaderProps) => {
         <UserAvatar src={imageUrl} className="h-8 w-8 md:h-8 md:w-8 mr-2" />
       )}
       <p className="font-semibold text-md text-black dark:text-white">{name}</p>
-      <div className="ml-auto">
-        <SocketIndicator />
-      </div>
-      {/* <div className="ml-auto flex items-center">
+      <div className="ml-auto flex items-center">
         {type === 'conversation' && <ChatVideoButton />}
         <SocketIndicator />
-      </div> */}
+      </div>
     </div>
   )
 }

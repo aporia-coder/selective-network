@@ -1,11 +1,18 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
 'use client'
 
 import '@livekit/components-styles'
-import { LiveKitRoom, VideoConference } from '@livekit/components-react'
+import {
+  GridLayout,
+  LiveKitRoom,
+  ParticipantTile,
+  useTracks,
+} from '@livekit/components-react'
 import { useUser } from '@clerk/nextjs'
 import { useEffect, useState } from 'react'
 import { MediaRoomProps } from './types'
 import Loader from '../Loader'
+import { Track } from 'livekit-client'
 
 const MediaRoom = ({ chatId, video, audio }: MediaRoomProps) => {
   const { user } = useUser()
@@ -21,12 +28,12 @@ const MediaRoom = ({ chatId, video, audio }: MediaRoomProps) => {
           `/api/get-participant-token?room=${chatId}&username=${name}`
         )
         const data = await resp.json()
-        console.log(data)
         setToken(data.token)
       } catch (e) {
         console.error(e)
       }
     }
+
     getUserToken()
   }, [user?.firstName, user?.lastName, chatId])
 
@@ -41,8 +48,27 @@ const MediaRoom = ({ chatId, video, audio }: MediaRoomProps) => {
       video={video}
       audio={audio}
     >
-      <VideoConference />
+      <MyVideoConference />
     </LiveKitRoom>
+  )
+}
+
+function MyVideoConference() {
+  const tracks = useTracks(
+    [
+      { source: Track.Source.Camera, withPlaceholder: true },
+      { source: Track.Source.ScreenShare, withPlaceholder: false },
+    ],
+    { onlySubscribed: false }
+  )
+
+  return (
+    <GridLayout
+      tracks={tracks}
+      style={{ height: 'calc(100vh - var(--lk-control-bar-height))' }}
+    >
+      <ParticipantTile />
+    </GridLayout>
   )
 }
 

@@ -73,7 +73,7 @@ const ChatMessages = ({
       {hasNextPage && (
         <div className="flex justify-center">
           {isFetchingNextPage ? (
-            <Loader />
+            <Loader message="Loading messages..." />
           ) : (
             <button
               className="text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 text-xs my-2 dark:hover:text-zinc-300 transition"

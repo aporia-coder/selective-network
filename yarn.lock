@@ -282,7 +282,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/core@npm:^1.5.3":
+"@floating-ui/core@npm:^1.6.0":
   version: 1.6.0
   resolution: "@floating-ui/core@npm:1.6.0"
   dependencies:
@@ -291,13 +291,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/dom@npm:1.5.4":
-  version: 1.5.4
-  resolution: "@floating-ui/dom@npm:1.5.4"
+"@floating-ui/dom@npm:1.6.1":
+  version: 1.6.1
+  resolution: "@floating-ui/dom@npm:1.6.1"
   dependencies:
-    "@floating-ui/core": "npm:^1.5.3"
-    "@floating-ui/utils": "npm:^0.2.0"
-  checksum: 10c0/8a47ac5b8cf90214d73011d436d66821ccb7f4b9a29170e23117df2cc6008845834db7f59e73d998add19807f62f09e5e6a84516eed81cebbf25770dea595a84
+    "@floating-ui/core": "npm:^1.6.0"
+    "@floating-ui/utils": "npm:^0.2.1"
+  checksum: 10c0/f810ab62280e86f5f9199cf7f6123b1dd2a7b44b3b273caa7d3a23cf70ad12c3fb689053e6d3db7acf4f724dbd6d43693e2fc538e5d30d805dcabb9647f8f494
   languageName: node
   linkType: hard
 
@@ -330,7 +330,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/utils@npm:^0.2.0, @floating-ui/utils@npm:^0.2.1":
+"@floating-ui/utils@npm:^0.2.1":
   version: 0.2.1
   resolution: "@floating-ui/utils@npm:0.2.1"
   checksum: 10c0/ee77756712cf5b000c6bacf11992ffb364f3ea2d0d51cc45197a7e646a17aeb86ea4b192c0b42f3fbb29487aee918a565e84f710b8c3645827767f406a6b4cc9
@@ -427,49 +427,49 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@livekit/components-core@npm:0.8.3":
-  version: 0.8.3
-  resolution: "@livekit/components-core@npm:0.8.3"
+"@livekit/components-core@npm:0.9.1":
+  version: 0.9.1
+  resolution: "@livekit/components-core@npm:0.9.1"
   dependencies:
-    "@floating-ui/dom": "npm:1.5.4"
+    "@floating-ui/dom": "npm:1.6.1"
     email-regex: "npm:5.0.0"
-    loglevel: "npm:1.8.1"
+    loglevel: "npm:1.9.1"
     rxjs: "npm:7.8.1"
   peerDependencies:
-    livekit-client: ^1.15.1
+    livekit-client: ^2.0.2
     tslib: ^2.6.2
-  checksum: 10c0/7ec5ae6f21ba566b19cb3b3bab1e2dddd1d4d96d50a1b71a56a1e707b3943007582a8c881ee68d600e53500504e65d496c1b1c169888edbd2dd33955a83fe701
+  checksum: 10c0/dac75b11fd05c6f24fdc844daee8facca83e923469f513d7b255bdc2bd0ce5026bfd64199f2ce409d6a8ff7a72f240cd281ec5f9a4eb1b191bfaef9e1f25fbc8
   languageName: node
   linkType: hard
 
-"@livekit/components-react@npm:^1.5.3":
-  version: 1.5.3
-  resolution: "@livekit/components-react@npm:1.5.3"
+"@livekit/components-react@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "@livekit/components-react@npm:2.0.3"
   dependencies:
-    "@livekit/components-core": "npm:0.8.3"
+    "@livekit/components-core": "npm:0.9.1"
     "@react-hook/latest": "npm:1.0.3"
     clsx: "npm:2.1.0"
-    usehooks-ts: "npm:2.9.1"
+    usehooks-ts: "npm:2.14.0"
   peerDependencies:
-    livekit-client: ^1.15.1
+    livekit-client: ^2.0.2
     react: ">=18"
     react-dom: ">=18"
     tslib: ^2.6.2
-  checksum: 10c0/c5d4814e6f97e62912b08feba3c272aac9e84ae98b126041a5358276023420c33a4a944ef935295c195eee8f39d057a0f6a63608df03b2cb88eae6dfd12103e0
+  checksum: 10c0/0f035bf1061342f0a2fb8911ba6c8c658453b47fe4b2444ca1ab1d19e9db8757548912ee61b136e315a2b368d5f2b886d36bcd029061de236eac95d8e82cc7ff
   languageName: node
   linkType: hard
 
-"@livekit/components-styles@npm:^1.0.9":
-  version: 1.0.9
-  resolution: "@livekit/components-styles@npm:1.0.9"
-  checksum: 10c0/31a9dc9daa614f573a7dc7289d62eb52050aaa4f4f55eadf3837b550036d3ec481e1b62b0a031bc75bbf625e0e483cb821d7f376e26f10eefeebb7697bc64d07
+"@livekit/components-styles@npm:^1.0.10":
+  version: 1.0.10
+  resolution: "@livekit/components-styles@npm:1.0.10"
+  checksum: 10c0/f30d4ef202f9cf70c02c3a113617e5c9842922537b820efafc25898fbf091925ac5091cece5322d687487440496f273803bc42f51ac0a5fa05894c7ac06764d4
   languageName: node
   linkType: hard
 
-"@next/env@npm:14.0.4":
-  version: 14.0.4
-  resolution: "@next/env@npm:14.0.4"
-  checksum: 10c0/59b893d30aea0556379a24f6e4eac830677feb149bd8416b72383ea2600ce194fa22a79b2dd86e0b295c4a8f0702e461f48edaff1ac9173eddef42a4cce7fd98
+"@next/env@npm:14.1.3":
+  version: 14.1.3
+  resolution: "@next/env@npm:14.1.3"
+  checksum: 10c0/928dba385f1ed3346880845662f87fe386e42ee0c798ccbd7c13a31e2cb509153d42e6c8a4a73ad9c6d647ac9cb6a570316c8ddcaccc9ec201f7519ec383dc02
   languageName: node
   linkType: hard
 
@@ -482,65 +482,65 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-arm64@npm:14.0.4":
-  version: 14.0.4
-  resolution: "@next/swc-darwin-arm64@npm:14.0.4"
+"@next/swc-darwin-arm64@npm:14.1.3":
+  version: 14.1.3
+  resolution: "@next/swc-darwin-arm64@npm:14.1.3"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-x64@npm:14.0.4":
-  version: 14.0.4
-  resolution: "@next/swc-darwin-x64@npm:14.0.4"
+"@next/swc-darwin-x64@npm:14.1.3":
+  version: 14.1.3
+  resolution: "@next/swc-darwin-x64@npm:14.1.3"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-gnu@npm:14.0.4":
-  version: 14.0.4
-  resolution: "@next/swc-linux-arm64-gnu@npm:14.0.4"
+"@next/swc-linux-arm64-gnu@npm:14.1.3":
+  version: 14.1.3
+  resolution: "@next/swc-linux-arm64-gnu@npm:14.1.3"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-musl@npm:14.0.4":
-  version: 14.0.4
-  resolution: "@next/swc-linux-arm64-musl@npm:14.0.4"
+"@next/swc-linux-arm64-musl@npm:14.1.3":
+  version: 14.1.3
+  resolution: "@next/swc-linux-arm64-musl@npm:14.1.3"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-gnu@npm:14.0.4":
-  version: 14.0.4
-  resolution: "@next/swc-linux-x64-gnu@npm:14.0.4"
+"@next/swc-linux-x64-gnu@npm:14.1.3":
+  version: 14.1.3
+  resolution: "@next/swc-linux-x64-gnu@npm:14.1.3"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-musl@npm:14.0.4":
-  version: 14.0.4
-  resolution: "@next/swc-linux-x64-musl@npm:14.0.4"
+"@next/swc-linux-x64-musl@npm:14.1.3":
+  version: 14.1.3
+  resolution: "@next/swc-linux-x64-musl@npm:14.1.3"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@next/swc-win32-arm64-msvc@npm:14.0.4":
-  version: 14.0.4
-  resolution: "@next/swc-win32-arm64-msvc@npm:14.0.4"
+"@next/swc-win32-arm64-msvc@npm:14.1.3":
+  version: 14.1.3
+  resolution: "@next/swc-win32-arm64-msvc@npm:14.1.3"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-win32-ia32-msvc@npm:14.0.4":
-  version: 14.0.4
-  resolution: "@next/swc-win32-ia32-msvc@npm:14.0.4"
+"@next/swc-win32-ia32-msvc@npm:14.1.3":
+  version: 14.1.3
+  resolution: "@next/swc-win32-ia32-msvc@npm:14.1.3"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@next/swc-win32-x64-msvc@npm:14.0.4":
-  version: 14.0.4
-  resolution: "@next/swc-win32-x64-msvc@npm:14.0.4"
+"@next/swc-win32-x64-msvc@npm:14.1.3":
+  version: 14.1.3
+  resolution: "@next/swc-win32-x64-msvc@npm:14.1.3"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -2813,10 +2813,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001406, caniuse-lite@npm:^1.0.30001538, caniuse-lite@npm:^1.0.30001565":
+"caniuse-lite@npm:^1.0.30001538, caniuse-lite@npm:^1.0.30001565":
   version: 1.0.30001566
   resolution: "caniuse-lite@npm:1.0.30001566"
   checksum: 10c0/cd163075b1a9feaf9c9f657c3551279fcdac471471d67ee57ab2286c7b5480168e6336e359741b469fa40e94716f0f95ec185d87bd57d58894d66d8c21d7db04
+  languageName: node
+  linkType: hard
+
+"caniuse-lite@npm:^1.0.30001579":
+  version: 1.0.30001596
+  resolution: "caniuse-lite@npm:1.0.30001596"
+  checksum: 10c0/60589001c7d9bb89e2bf08f1aeadd09c867e41661b1fd2c1d562ca8e67a9f645f7dd9572aeca7ffdfff37a4e17ccf6a4cfdd29dde5a7454f5f08f5f372345d13
   languageName: node
   linkType: hard
 
@@ -3384,8 +3391,8 @@ __metadata:
     "@emoji-mart/data": "npm:^1.1.2"
     "@emoji-mart/react": "npm:^1.1.1"
     "@hookform/resolvers": "npm:^3.3.2"
-    "@livekit/components-react": "npm:^1.5.3"
-    "@livekit/components-styles": "npm:^1.0.9"
+    "@livekit/components-react": "npm:^2.0.3"
+    "@livekit/components-styles": "npm:^1.0.10"
     "@next/eslint-plugin-next": "npm:^14.0.4"
     "@prisma/client": "npm:^5.8.1"
     "@radix-ui/react-avatar": "npm:^1.0.4"
@@ -3425,10 +3432,10 @@ __metadata:
     eslint-plugin-react: "npm:^7.33.2"
     husky: "npm:^8.0.3"
     lint-staged: "npm:^15.2.0"
-    livekit-client: "npm:^2.0.1"
-    livekit-server-sdk: "npm:^2.0.2"
+    livekit-client: "npm:^2.0.5"
+    livekit-server-sdk: "npm:^2.0.4"
     lucide-react: "npm:^0.294.0"
-    next: "npm:14.0.4"
+    next: "npm:^14.1.3"
     next-themes: "npm:^0.2.1"
     postcss: "npm:^8"
     prettier: "npm:^3.1.1"
@@ -4620,7 +4627,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob-to-regexp@npm:0.4.1, glob-to-regexp@npm:^0.4.1":
+"glob-to-regexp@npm:0.4.1":
   version: 0.4.1
   resolution: "glob-to-regexp@npm:0.4.1"
   checksum: 10c0/0486925072d7a916f052842772b61c3e86247f0a80cc0deb9b5a3e8a1a9faad5b04fb6f58986a09f34d3e96cd2a22a24b7e9882fb1cf904c31e9a310de96c429
@@ -4758,7 +4765,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graceful-fs@npm:^4.1.2, graceful-fs@npm:^4.1.6, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.11, graceful-fs@npm:^4.2.4, graceful-fs@npm:^4.2.6":
+"graceful-fs@npm:^4.1.6, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.11, graceful-fs@npm:^4.2.4, graceful-fs@npm:^4.2.6":
   version: 4.2.11
   resolution: "graceful-fs@npm:4.2.11"
   checksum: 10c0/386d011a553e02bc594ac2ca0bd6d9e4c22d7fa8cfbfc448a6d148c59ea881b092db9dbe3547ae4b88e55f1b01f7c4a2ecc53b310c042793e63aa44cf6c257f2
@@ -5628,9 +5635,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"livekit-client@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "livekit-client@npm:2.0.1"
+"livekit-client@npm:^2.0.5":
+  version: 2.0.5
+  resolution: "livekit-client@npm:2.0.5"
   dependencies:
     "@bufbuild/protobuf": "npm:^1.3.0"
     events: "npm:^3.3.0"
@@ -5640,18 +5647,18 @@ __metadata:
     tslib: "npm:2.6.2"
     typed-emitter: "npm:^2.1.0"
     webrtc-adapter: "npm:^8.1.1"
-  checksum: 10c0/77d920e78975905423ee0be9aaeb864bd320c9071caca4264f48c18c68352080d766cb525a3d839310c04b97cc617272d760c32bea66399c38492d0c34a0e39b
+  checksum: 10c0/9f05a6ed37feb1ef2c7f11be67cf8819c37fb1eca2ac6b8f6cc81f9fe002902fa78ed4cbc35d04e2e4e008f9fefe0bb9c37cbb9145d3cf24d44e743019a39182
   languageName: node
   linkType: hard
 
-"livekit-server-sdk@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "livekit-server-sdk@npm:2.0.2"
+"livekit-server-sdk@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "livekit-server-sdk@npm:2.0.4"
   dependencies:
     "@bufbuild/protobuf": "npm:^1.3.0"
     camelcase-keys: "npm:^7.0.0"
     jose: "npm:^5.1.2"
-  checksum: 10c0/9e9b08fb489a9fedca68f355c822357bef15acff2914303d27da6a0be00181d881cd80f69534a9325ad7e850b7470db5704c652ef7d00e0508ebee592af9831b
+  checksum: 10c0/7e6a56faa9d6c2a3710d899f7d4e8767f809c5723db5c8f9f21fdf609ce1220a0656f0840c4d87581419b6eb85ed512beab36a23a60188cfdaac3269b9360afe
   languageName: node
   linkType: hard
 
@@ -5661,6 +5668,13 @@ __metadata:
   dependencies:
     p-locate: "npm:^5.0.0"
   checksum: 10c0/d3972ab70dfe58ce620e64265f90162d247e87159b6126b01314dd67be43d50e96a50b517bce2d9452a79409c7614054c277b5232377de50416564a77ac7aad3
+  languageName: node
+  linkType: hard
+
+"lodash.debounce@npm:^4.0.8":
+  version: 4.0.8
+  resolution: "lodash.debounce@npm:4.0.8"
+  checksum: 10c0/762998a63e095412b6099b8290903e0a8ddcb353ac6e2e0f2d7e7d03abd4275fe3c689d88960eb90b0dde4f177554d51a690f22a343932ecbc50a5d111849987
   languageName: node
   linkType: hard
 
@@ -5729,14 +5743,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loglevel@npm:1.8.1":
-  version: 1.8.1
-  resolution: "loglevel@npm:1.8.1"
-  checksum: 10c0/21069436c97448a1801b154a77d19ada212225c513d94f0471bfe299c981ffd4dc0d21e6211f9250bd6209ba9837bfe0d40d9295c673d73e3c543ec6b1c5d9ef
-  languageName: node
-  linkType: hard
-
-"loglevel@npm:^1.8.0":
+"loglevel@npm:1.9.1, loglevel@npm:^1.8.0":
   version: 1.9.1
   resolution: "loglevel@npm:1.9.1"
   checksum: 10c0/152f0501cea367cf998c844a38b19f0b5af555756ad7d8650214a1f8c6a5b045e31b8cf5dae27d28339a061624ce3f618aadb333aed386cac041d6ddc5101a39
@@ -6073,27 +6080,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:14.0.4":
-  version: 14.0.4
-  resolution: "next@npm:14.0.4"
+"next@npm:^14.1.3":
+  version: 14.1.3
+  resolution: "next@npm:14.1.3"
   dependencies:
-    "@next/env": "npm:14.0.4"
-    "@next/swc-darwin-arm64": "npm:14.0.4"
-    "@next/swc-darwin-x64": "npm:14.0.4"
-    "@next/swc-linux-arm64-gnu": "npm:14.0.4"
-    "@next/swc-linux-arm64-musl": "npm:14.0.4"
-    "@next/swc-linux-x64-gnu": "npm:14.0.4"
-    "@next/swc-linux-x64-musl": "npm:14.0.4"
-    "@next/swc-win32-arm64-msvc": "npm:14.0.4"
-    "@next/swc-win32-ia32-msvc": "npm:14.0.4"
-    "@next/swc-win32-x64-msvc": "npm:14.0.4"
+    "@next/env": "npm:14.1.3"
+    "@next/swc-darwin-arm64": "npm:14.1.3"
+    "@next/swc-darwin-x64": "npm:14.1.3"
+    "@next/swc-linux-arm64-gnu": "npm:14.1.3"
+    "@next/swc-linux-arm64-musl": "npm:14.1.3"
+    "@next/swc-linux-x64-gnu": "npm:14.1.3"
+    "@next/swc-linux-x64-musl": "npm:14.1.3"
+    "@next/swc-win32-arm64-msvc": "npm:14.1.3"
+    "@next/swc-win32-ia32-msvc": "npm:14.1.3"
+    "@next/swc-win32-x64-msvc": "npm:14.1.3"
     "@swc/helpers": "npm:0.5.2"
     busboy: "npm:1.6.0"
-    caniuse-lite: "npm:^1.0.30001406"
+    caniuse-lite: "npm:^1.0.30001579"
     graceful-fs: "npm:^4.2.11"
     postcss: "npm:8.4.31"
     styled-jsx: "npm:5.1.1"
-    watchpack: "npm:2.4.0"
   peerDependencies:
     "@opentelemetry/api": ^1.1.0
     react: ^18.2.0
@@ -6125,7 +6131,7 @@ __metadata:
       optional: true
   bin:
     next: dist/bin/next
-  checksum: 10c0/e6c829fd473d8c3605b2b62d15e1bf41e9d90cf59a2c213b4adeadff2846999bc9a653ffef18f6aa13cc9f5d6de02469c222acf5a4184901a4690a4504bd468f
+  checksum: 10c0/b723955669b40b49761220b582e46ee0fb472b01b67fb9b6ceabc9a191a252bba253a65d72b284fcac1001c85d39bd6816db71e78e97b2221137ed15776c35bd
   languageName: node
   linkType: hard
 
@@ -8120,13 +8126,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"usehooks-ts@npm:2.9.1":
-  version: 2.9.1
-  resolution: "usehooks-ts@npm:2.9.1"
+"usehooks-ts@npm:2.14.0":
+  version: 2.14.0
+  resolution: "usehooks-ts@npm:2.14.0"
+  dependencies:
+    lodash.debounce: "npm:^4.0.8"
   peerDependencies:
-    react: ^16.8.0  || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0  || ^17.0.0 || ^18.0.0
-  checksum: 10c0/14f6bc3661cebe19714dc2bc0413b56c53fcb44fada2258756c2fefc10cf6481299bd8d4ba659af3bc5692a57d5da3c3e14b75d69177eccd3ac8326c5336e756
+    react: ^16.8.0  || ^17 || ^18
+  checksum: 10c0/032d8e39687592cad9e00fa853a32c0edf286dd1c5843cfa06167b080f9da9e24479b28096e11531912c9c47b219fb969041a4dc831dfe3a3ca007fe11a2b454
   languageName: node
   linkType: hard
 
@@ -8150,16 +8157,6 @@ __metadata:
   version: 1.1.2
   resolution: "vary@npm:1.1.2"
   checksum: 10c0/f15d588d79f3675135ba783c91a4083dcd290a2a5be9fcb6514220a1634e23df116847b1cc51f66bfb0644cf9353b2abb7815ae499bab06e46dd33c1a6bf1f4f
-  languageName: node
-  linkType: hard
-
-"watchpack@npm:2.4.0":
-  version: 2.4.0
-  resolution: "watchpack@npm:2.4.0"
-  dependencies:
-    glob-to-regexp: "npm:^0.4.1"
-    graceful-fs: "npm:^4.1.2"
-  checksum: 10c0/c5e35f9fb9338d31d2141d9835643c0f49b5f9c521440bb648181059e5940d93dd8ed856aa8a33fbcdd4e121dad63c7e8c15c063cf485429cd9d427be197fe62
   languageName: node
   linkType: hard
 
