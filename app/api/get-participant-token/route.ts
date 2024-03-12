@@ -28,5 +28,11 @@ export async function GET(req: NextRequest) {
 
   at.addGrant({ room, roomJoin: true, canPublish: true, canSubscribe: true })
 
+  if (!at)
+    return NextResponse.json(
+      { error: 'No Access token found' },
+      { status: 401 }
+    )
+
   return NextResponse.json({ token: await at.toJwt() })
 }
