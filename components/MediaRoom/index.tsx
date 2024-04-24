@@ -5,8 +5,9 @@ import '@livekit/components-styles'
 import {
   GridLayout,
   LiveKitRoom,
-  ParticipantTile,
+  // ParticipantTile,
   useTracks,
+  VideoConference,
 } from '@livekit/components-react'
 import { useUser } from '@clerk/nextjs'
 import { useEffect, useState } from 'react'
@@ -67,7 +68,8 @@ function MyVideoConference() {
       tracks={tracks}
       style={{ height: 'calc(100vh - var(--lk-control-bar-height))' }}
     >
-      <ParticipantTile />
+      {/* <ParticipantTile /> */}
+      <VideoConference />
     </GridLayout>
   )
 }
