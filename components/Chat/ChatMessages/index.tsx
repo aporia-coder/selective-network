@@ -86,7 +86,7 @@ const ChatMessages = ({
       )}
       <div className="flex flex-col-reverse mt-auto">
         {data?.pages?.map((items) => {
-          return items.messages.map((message: MessageWithMemberAndProfile) => (
+          return items?.messages.map((message: MessageWithMemberAndProfile) => (
             <ChatItem
               content={message.content}
               deleted={message.deleted}
