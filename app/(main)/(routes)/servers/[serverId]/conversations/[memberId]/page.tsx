@@ -40,6 +40,15 @@ const MemberPage = async ({
     memberId
   )
 
+  const notifications = await db.notification.findMany({
+    where: {
+      serverId,
+      member: {
+        profileId: profile.id,
+      },
+    },
+  })
+
   if (!conversation) redirect(`/servers/${serverId}`)
 
   const { memberOne, memberTwo } = conversation
@@ -53,6 +62,7 @@ const MemberPage = async ({
         serverId={serverId}
         type={SectionTypes.CONVERSATION}
         imageUrl={otherMember.profile.imageUrl}
+        notifications={notifications}
       />
       {searchParams.video ? (
         <MediaRoom chatId={conversation.id} audio={true} video={true} />

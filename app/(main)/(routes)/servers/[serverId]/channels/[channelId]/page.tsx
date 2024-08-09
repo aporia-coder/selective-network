@@ -29,6 +29,22 @@ const ChannelPage = async ({
     },
   })
 
+  const notifications = await db.notification.findMany({
+    where: {
+      serverId,
+      member: {
+        profileId: profile.id,
+      },
+    },
+    include: {
+      member: {
+        include: {
+          profile: true,
+        },
+      },
+    },
+  })
+
   if (!channel || !member) return redirect('/')
 
   return (
@@ -37,6 +53,7 @@ const ChannelPage = async ({
         name={channel.name}
         type={SectionTypes.CHANNEL}
         serverId={serverId}
+        notifications={notifications}
       />
       {channel.type === ChannelType.TEXT && (
         <>

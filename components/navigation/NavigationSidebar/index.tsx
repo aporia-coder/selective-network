@@ -6,7 +6,6 @@ import NavigationItem from '../NavigationItem'
 import { ModeToggle } from '../../ModeToggle'
 import { UserButton } from '@clerk/nextjs'
 import { getCurrentUserProfile } from '@/lib/utils'
-import Notifications from '@/components/Notifications'
 
 const NavigationSidebar = async () => {
   const profile = await getCurrentUserProfile()
@@ -37,7 +36,6 @@ const NavigationSidebar = async () => {
         ))}
       </ScrollArea>
       <div className="mt-auto pb-3 flex items-center flex-col gap-y-4">
-        <Notifications />
         <ModeToggle />
         <UserButton
           afterSignOutUrl="/"

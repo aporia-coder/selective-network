@@ -4,8 +4,15 @@ import UserAvatar from '@/components/UserAvatar'
 import { Hash } from 'lucide-react'
 import SocketIndicator from '@/components/SocketIndicator'
 import { ChatVideoButton } from '../ChatVideoButton'
+import NotificationIndicator from '@/components/NotificationIndicator'
 
-const ChatHeader = ({ type, imageUrl, name, serverId }: ChatHeaderProps) => {
+const ChatHeader = ({
+  type,
+  imageUrl,
+  name,
+  serverId,
+  notifications,
+}: ChatHeaderProps) => {
   return (
     <div className="text-md font-semibold px-3 flex items-center h-12 border-neutral-200 dark:border-neutral-800 border-b-2">
       <MobileToggle serverId={serverId} />
@@ -17,6 +24,7 @@ const ChatHeader = ({ type, imageUrl, name, serverId }: ChatHeaderProps) => {
       )}
       <p className="font-semibold text-md text-black dark:text-white">{name}</p>
       <div className="ml-auto flex items-center">
+        <NotificationIndicator notifications={notifications} />
         {type === 'conversation' && <ChatVideoButton />}
         <SocketIndicator />
       </div>

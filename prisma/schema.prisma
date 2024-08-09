@@ -32,6 +32,7 @@ model Server {
 
   channels Channel[]
   members Member[]
+  notifications Notification[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -58,6 +59,8 @@ model Member {
   messages Message[]
   directMessages DirectMessage[]
 
+  notifications Notification[]
+
   conversationsInitiated Conversation[] @relation("MemberOne")
   conversationsReceived Conversation[] @relation("MemberTwo")
 
@@ -65,6 +68,27 @@ model Member {
   updatedAt DateTime @updatedAt
 
   @@index([profileId])
+  @@index([serverId])
+}
+
+enum NotificationTypes {
+  DIRECT_MESSAGE
+}
+
+model Notification {
+  id String @id @default(uuid())
+
+  type NotificationTypes @default(DIRECT_MESSAGE)
+
+  isRead Boolean @default(false)
+
+  serverId String
+  server Server @relation(fields: [serverId], references: [id])
+
+  memberId String
+  member Member @relation(fields: [memberId], references: [id])
+
+  @@index([memberId])
   @@index([serverId])
 }
 
